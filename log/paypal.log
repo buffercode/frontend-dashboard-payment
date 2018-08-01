@@ -1,0 +1,558 @@
+[19-07-2018 09:35:42] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 09:35:43] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 09:35:43] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 09:35:45] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 09:37:47] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 09:37:48] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 09:37:48] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 09:37:49] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 09:40:05] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 09:40:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 09:40:06] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 09:40:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 09:41:11] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 09:41:12] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 09:41:12] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 09:41:13] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 09:41:13] PayPal\Core\PayPalHttpConnection : INFO: PATCH https://api.sandbox.paypal.com/v1/payments/billing-plans/P-2H9988830E3938731WHVDJVQ
+[19-07-2018 09:41:19] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 09:43:15] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 09:43:16] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 09:43:16] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 09:43:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 09:46:25] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 09:46:26] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 09:46:26] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 09:46:27] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 10:58:45] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 10:58:46] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 10:58:46] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE
+[19-07-2018 10:58:48] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 10:58:50] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 10:58:51] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 10:58:51] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=CREATED
+[19-07-2018 10:58:53] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:31:36] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 11:31:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:31:37] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 11:31:39] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 11:31:39] PayPal\Core\PayPalHttpConnection : INFO: PATCH https://api.sandbox.paypal.com/v1/payments/billing-plans/P-0FM86138RJ450190EWJHUZWQ
+[19-07-2018 11:31:45] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:33:50] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 11:33:52] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:33:52] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE
+[19-07-2018 11:33:54] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:34:08] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 11:34:10] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:34:10] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=CREATED
+[19-07-2018 11:34:12] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:35:15] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 11:35:16] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:35:16] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 11:35:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 11:35:17] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/. {"name":"VALIDATION_ERROR","details":[{"field":"invalid number of cycles for infinite payment definition type","issue":"If payment definition type is REGULAR, cycles can only be null or 0 for an UNLIMITED plan"}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"922ce9756dce5"}
+[19-07-2018 11:35:39] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 11:35:40] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:35:40] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 11:35:42] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 11:35:42] PayPal\Core\PayPalHttpConnection : INFO: PATCH https://api.sandbox.paypal.com/v1/payments/billing-plans/P-7VV07018AU6566349WJJQCOY
+[19-07-2018 11:35:47] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:35:53] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 11:35:54] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:35:54] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE
+[19-07-2018 11:35:56] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:36:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 11:36:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:36:06] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE
+[19-07-2018 11:36:08] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:36:23] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 11:36:24] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:36:24] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=INACTIVE
+[19-07-2018 11:36:26] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:37:30] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 11:37:31] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:37:31] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 11:37:32] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 11:38:27] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 11:38:29] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:38:29] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 11:38:30] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 11:38:30] PayPal\Core\PayPalHttpConnection : INFO: PATCH https://api.sandbox.paypal.com/v1/payments/billing-plans/P-1P903851WS779361LWJKZHLQ
+[19-07-2018 11:38:36] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:41:13] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 11:41:14] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:41:14] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE
+[19-07-2018 11:41:16] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:41:54] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 11:41:55] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 11:41:55] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 11:41:57] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 11:41:57] PayPal\Core\PayPalHttpConnection : INFO: PATCH https://api.sandbox.paypal.com/v1/payments/billing-plans/P-29M33569PF4405622WJMLXRI
+[19-07-2018 11:42:03] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:28:00] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:28:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:28:07] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 12:28:08] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 12:28:08] PayPal\Core\PayPalHttpConnection : INFO: PATCH https://api.sandbox.paypal.com/v1/payments/billing-plans/P-0KU085170W036023JWKBQNHQ
+[19-07-2018 12:28:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:29:35] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:29:48] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:29:48] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 12:30:59] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:31:00] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:31:00] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 12:31:01] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 12:31:01] PayPal\Core\PayPalHttpConnection : INFO: PATCH https://api.sandbox.paypal.com/v1/payments/billing-plans/P-8AM88434RK6006336WKC2S7A
+[19-07-2018 12:31:08] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:31:53] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:31:54] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:31:54] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE
+[19-07-2018 12:31:56] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:32:03] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:32:04] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:32:04] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=CREATED
+[19-07-2018 12:32:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:32:09] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:32:10] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:32:10] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE
+[19-07-2018 12:32:13] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:32:49] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:32:50] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:32:50] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 12:32:52] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 12:32:52] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/. {"name":"VALIDATION_ERROR","details":[{"field":"payment_definitions[0].charge_models[0].amount.value","issue":"Amount cannot be blank"},{"field":"payment_definitions[0].charge_models[1].amount.value","issue":"Amount cannot be blank"}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"f2004f31ce3e4"}
+[19-07-2018 12:33:19] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:33:20] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:33:20] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 12:33:22] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 12:33:22] PayPal\Core\PayPalHttpConnection : INFO: PATCH https://api.sandbox.paypal.com/v1/payments/billing-plans/P-8NC10941GU605070HWKD44HQ
+[19-07-2018 12:33:27] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:36:53] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:36:55] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:36:55] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE
+[19-07-2018 12:36:56] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:37:35] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:37:36] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:37:36] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=40
+[19-07-2018 12:37:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 12:37:37] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=40. {"name":"VALIDATION_ERROR","details":[{"field":"page_size","issue":"Invalid Page size, valid value is positive number less than 21."}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"eec2322871e80"}
+[19-07-2018 12:37:42] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:37:43] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:37:43] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=40
+[19-07-2018 12:37:45] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 12:37:45] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=40. {"name":"VALIDATION_ERROR","details":[{"field":"page_size","issue":"Invalid Page size, valid value is positive number less than 21."}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"4e1adfc4cc19f"}
+[19-07-2018 12:38:13] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:38:14] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:38:14] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=40
+[19-07-2018 12:38:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 12:38:15] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=40. {"name":"VALIDATION_ERROR","details":[{"field":"page_size","issue":"Invalid Page size, valid value is positive number less than 21."}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"d6368bf9843b4"}
+[19-07-2018 12:40:06] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:40:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:40:07] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=2
+[19-07-2018 12:40:09] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:40:41] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:40:43] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:40:43] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=2&total_required=20
+[19-07-2018 12:40:44] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 12:40:44] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=2&total_required=20. {"name":"VALIDATION_ERROR","details":[{"field":"total_required","issue":"Invalid Total required, valid value are yes or no."}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"6b62fde4f3b86"}
+[19-07-2018 12:40:55] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:40:56] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:40:56] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 12:40:58] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:42:29] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:42:30] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:42:30] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=30
+[19-07-2018 12:42:31] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 12:42:31] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=30. {"name":"VALIDATION_ERROR","details":[{"field":"page_size","issue":"Invalid Page size, valid value is positive number less than 21."}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"115db70381775"}
+[19-07-2018 12:42:40] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:42:42] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:42:42] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=25
+[19-07-2018 12:42:43] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 12:42:43] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=25. {"name":"VALIDATION_ERROR","details":[{"field":"page_size","issue":"Invalid Page size, valid value is positive number less than 21."}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"454430ec10e34"}
+[19-07-2018 12:46:54] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:46:55] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:46:55] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 12:46:57] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:47:20] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:47:26] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:47:26] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 12:47:30] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:51:59] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:52:00] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:52:00] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 12:52:02] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:52:27] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:52:28] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:52:28] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 12:52:30] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:53:14] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:53:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:53:15] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 12:53:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:53:55] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:53:57] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:53:57] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 12:53:59] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:55:09] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:55:11] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:55:11] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 12:55:13] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:56:00] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:56:03] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:56:03] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 12:56:05] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:58:47] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 12:58:48] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 12:58:48] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 12:58:50] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:00:14] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:00:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:00:17] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 13:00:19] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:00:41] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:00:42] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:00:42] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 13:00:44] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:01:03] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:01:04] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:01:04] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 13:01:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:02:20] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:02:22] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:02:22] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 13:02:23] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 13:02:23] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/. {"name":"VALIDATION_ERROR","details":[{"field":"payment_definitions","issue":"Payment definitions are invalid. Valid parameters are REGULAR or combination of TRIAL and REGULAR."}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"8586de1e4ce08"}
+[19-07-2018 13:02:48] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:02:49] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:02:49] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 13:02:50] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 13:02:50] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/. {"name":"VALIDATION_ERROR","details":[{"field":"payment_definitions","issue":"Payment definitions are invalid. Valid parameters are REGULAR or combination of TRIAL and REGULAR."}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"8ba4c3b50b76"}
+[19-07-2018 13:03:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:03:05] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:03:05] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 13:03:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 13:03:07] PayPal\Core\PayPalHttpConnection : INFO: PATCH https://api.sandbox.paypal.com/v1/payments/billing-plans/P-9M274528WA142222MWKRQV6I
+[19-07-2018 13:03:13] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:03:19] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:03:20] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:03:20] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 13:03:22] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:03:30] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:03:32] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:03:32] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 13:03:41] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:34:49] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:34:50] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:34:50] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 13:34:52] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:47:39] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:47:40] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:47:40] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 13:47:44] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:47:45] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:47:45] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 13:47:47] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:47:50] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:48:17] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:48:18] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:48:18] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 13:48:23] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:48:43] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:48:44] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:48:44] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 13:48:50] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:49:43] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:49:44] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:49:44] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 13:49:50] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:33] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:51:34] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:34] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 13:51:35] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:51:36] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:51:36] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:51:36] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:51:36] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:36] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 13:51:36] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:51:36] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:36] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:51:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:37] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 13:51:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:37] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 13:51:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:37] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 13:51:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:37] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 13:51:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:37] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 13:51:38] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:38] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:39] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:39] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:39] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:39] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:44] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:51:45] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:51:45] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 13:51:51] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:55:27] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:55:30] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:55:30] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 13:55:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:56:26] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:56:29] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:56:29] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 13:56:35] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:58:43] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 13:58:44] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 13:58:44] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 13:58:50] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:15:11] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:15:13] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:15:13] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 14:15:18] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:17:25] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:17:26] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:17:26] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 14:17:32] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:19:22] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:19:23] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:19:23] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 14:19:29] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:19:37] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:19:38] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:19:38] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:19:40] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:20:15] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:20:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:20:17] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:20:19] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:21:02] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:21:03] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:21:03] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:21:03] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:21:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:21:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:21:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:21:05] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:21:05] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:21:05] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:21:05] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:21:05] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:21:05] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:21:05] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:21:05] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:21:05] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:21:05] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:21:05] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:21:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:21:06] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:21:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:21:06] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:21:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:21:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:21:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:21:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:21:08] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:21:08] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:22:19] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:22:21] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:22:21] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 14:22:27] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:22:33] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:22:34] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:22:34] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:22:36] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:22:51] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:22:52] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:22:52] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=CREATED&page_size=20
+[19-07-2018 14:22:54] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:23:12] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:23:13] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:23:13] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=INACTIVE&page_size=20
+[19-07-2018 14:23:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:23:18] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:23:19] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:23:19] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:23:21] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:23:29] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:23:30] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:23:30] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:23:33] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:23:56] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:23:57] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:23:57] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:23:59] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:25:27] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:25:28] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:25:28] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 14:25:34] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:25:43] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:25:44] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:25:44] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:25:46] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:25:59] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:26:00] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:26:00] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=CREATED&page_size=20
+[19-07-2018 14:26:02] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:26:23] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:26:25] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:26:25] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:26:27] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:26:42] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 14:26:43] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 14:26:43] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 14:26:46] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:02:39] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:02:43] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:02:43] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 17:02:50] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:10:51] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:10:55] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:10:55] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 17:11:02] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:11:27] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:11:28] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:11:28] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 17:11:30] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:36:53] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:36:54] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:36:54] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 17:37:01] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:48:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:48:05] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:48:05] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 17:48:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 17:48:07] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/. {"name":"VALIDATION_ERROR","details":[{"field":"payment_definitions[0].name","issue":"Field is mandatory. 127 single-byte alphanumeric characters."},{"field":"invalid payment definition","issue":"You can't create template with only TRIAL as payment definition."},{"field":"payment_definitions[0].cycles","issue":"For TRIAL payment definition, number of cycles can't be null or 0."},{"field":"payment_definitions[0].frequency_interval","issue":"Payment Definition Frequency count should be positive numeric"}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"bb86453cee0a5"}
+[19-07-2018 17:50:06] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:50:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:50:07] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/billing-plans/
+[19-07-2018 17:50:08] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-07-2018 17:50:08] PayPal\Core\PayPalHttpConnection : INFO: PATCH https://api.sandbox.paypal.com/v1/payments/billing-plans/P-00C2981006897012MWOU5G5Q
+[19-07-2018 17:50:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:50:20] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:50:21] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:50:21] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20
+[19-07-2018 17:50:23] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:53:29] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:53:31] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:53:31] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ALL&page_size=20
+[19-07-2018 17:53:32] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 17:53:32] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ALL&page_size=20. {"name":"VALIDATION_ERROR","details":[{"field":"status","issue":"Invalid status, valid values are CREATED, ACTIVE, INACTIVE"}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"57746b634e22"}
+[19-07-2018 17:53:36] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:53:37] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:53:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:53:37] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ALL&page_size=20
+[19-07-2018 17:53:38] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:53:38] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ALL&page_size=20
+[19-07-2018 17:53:38] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 17:53:38] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ALL&page_size=20. {"name":"VALIDATION_ERROR","details":[{"field":"status","issue":"Invalid status, valid values are CREATED, ACTIVE, INACTIVE"}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"146976460b8d"}
+[19-07-2018 17:53:39] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 17:53:39] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ALL&page_size=20. {"name":"VALIDATION_ERROR","details":[{"field":"status","issue":"Invalid status, valid values are CREATED, ACTIVE, INACTIVE"}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"82379dfe28d8e"}
+[19-07-2018 17:53:54] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:53:56] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:53:56] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ALL&page_size=20
+[19-07-2018 17:53:57] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-07-2018 17:53:57] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ALL&page_size=20. {"name":"VALIDATION_ERROR","details":[{"field":"status","issue":"Invalid status, valid values are CREATED, ACTIVE, INACTIVE"}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments.billing-plans#errors","debug_id":"4b4657c34c04c"}
+[19-07-2018 17:54:52] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:54:53] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:54:53] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 17:54:55] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:54:57] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:54:57] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20&total_required=yes
+[19-07-2018 17:54:59] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:55:01] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:55:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:55:05] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:55:05] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=INACTIVE&page_size=20&total_required=yes
+[19-07-2018 17:55:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:58:09] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:58:10] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:58:10] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=20&total_required=yes
+[19-07-2018 17:58:12] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:58:58] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:59:00] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:59:00] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=INACTIVE&page_size=20&total_required=yes
+[19-07-2018 17:59:02] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:59:35] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 17:59:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 17:59:37] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=5&total_required=yes
+[19-07-2018 17:59:38] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 18:28:44] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-07-2018 18:28:45] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-07-2018 18:28:45] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[19-07-2018 18:28:52] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[23-07-2018 14:47:01] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[23-07-2018 14:47:03] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[23-07-2018 14:47:03] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[23-07-2018 14:47:10] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[23-07-2018 14:47:34] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[23-07-2018 14:47:36] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[23-07-2018 14:47:36] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=5&total_required=yes
+[23-07-2018 14:47:38] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[23-07-2018 14:48:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[23-07-2018 14:48:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[23-07-2018 14:48:06] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=5&total_required=yes
+[23-07-2018 14:48:08] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 06:49:33] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-07-2018 06:49:40] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 06:49:40] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=5&total_required=yes
+[25-07-2018 06:49:42] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:07:07] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-07-2018 14:07:09] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:07:09] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[25-07-2018 14:07:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:09:23] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-07-2018 14:09:24] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:09:24] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[25-07-2018 14:09:30] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:12:16] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-07-2018 14:12:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:12:17] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[25-07-2018 14:12:24] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:15:46] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-07-2018 14:15:47] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:15:47] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[25-07-2018 14:15:53] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:28:38] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-07-2018 14:28:39] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:28:39] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[25-07-2018 14:28:46] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:28:57] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-07-2018 14:28:58] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:28:58] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=5&total_required=yes
+[25-07-2018 14:29:00] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:29:14] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-07-2018 14:29:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:29:15] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=5&total_required=yes
+[25-07-2018 14:29:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:29:46] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-07-2018 14:29:47] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:29:47] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[25-07-2018 14:29:50] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-07-2018 14:29:51] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:29:51] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[25-07-2018 14:29:53] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:29:57] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:30:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-07-2018 14:30:05] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:30:05] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=5&total_required=yes
+[25-07-2018 14:30:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:31:12] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-07-2018 14:31:13] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[25-07-2018 14:31:13] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=5&total_required=yes
+[25-07-2018 14:31:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[27-07-2018 09:53:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[27-07-2018 09:53:08] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[27-07-2018 09:53:08] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment?count=10&start_index=1
+[27-07-2018 09:53:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[01-08-2018 08:37:20] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[01-08-2018 08:37:23] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[01-08-2018 08:37:23] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=5&total_required=yes
+[01-08-2018 08:37:25] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[01-08-2018 12:52:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[01-08-2018 12:52:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[01-08-2018 12:52:06] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/billing-plans/?status=ACTIVE&page_size=5&total_required=yes
+[01-08-2018 12:52:08] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
