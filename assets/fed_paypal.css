@@ -17,8 +17,8 @@
 }
 
 .bc_fed #paypal{
-    font-size: 30px;
-    padding: 10px 40px;
+    font-size: 24px;
+    padding: 5px 24px;
 }
 
 .bc_fed .fed_pay_single_item {
@@ -36,8 +36,8 @@
 }
 
 .bc_fed .fed_ajax_replace_container .dropdown-menu > li > a {
-    font-size: 25px;
-    padding: 10px 40px;
+    font-size: 24px;
+    padding: 5px 24px;
     color: #ffffff !important;
     border-bottom: 1px solid !important;
 }

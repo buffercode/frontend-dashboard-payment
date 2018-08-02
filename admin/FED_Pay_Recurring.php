@@ -1,10 +1,9 @@
 <?php
 
 namespace FED_PayPal_Admin;
-
 use FED_Log;
 use FED_PayPal\FED_PayPal;
-use function class_exists;
+
 
 if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 	/**
@@ -34,10 +33,9 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 		}
 
 		/**
-		 *
+		 * @param $fed_admin_options
 		 */
-		public function fed_pay_admin_payment_options_tab() {
-			$fed_admin_options = get_option( 'fed_admin_settings_payments' );
+		public function fed_pay_admin_payment_options_tab($fed_admin_options) {
 			$tabs              = $this->fed_pay_paypal_api_options( $fed_admin_options );
 			fed_common_layouts_admin_settings( $fed_admin_options, $tabs );
 		}
@@ -45,14 +43,26 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 		/**
 		 * @param $fed_admin_options
 		 *
-		 * @return mixed|void
+		 * @return mixed
 		 */
 		public function fed_pay_paypal_api_options( $fed_admin_options ) {
 			$options = array(
 				'fed_pay_admin_paypal_settings' => array(
-					'icon'      => 'fa fa-paypal',
+					'icon'      => 'fab fa-paypal',
 					'name'      => __( 'PayPal', 'frontend-dashboard-payment-payment' ),
 					'callable'  => array( 'object' => $this, 'method' => 'fed_pay_admin_paypal_api_tab' ),
+					'arguments' => $fed_admin_options
+				),
+				'fed_pay_admin_invoice_details' => array(
+					'icon'      => 'fa fa-file-invoice',
+					'name'      => __( 'Invoice Details', 'frontend-dashboard-payment-payment' ),
+					'callable'  => array( 'object' => new FED_Pay_Invoice(), 'method' => 'fed_pay_admin_invoice_details_tab' ),
+					'arguments' => $fed_admin_options
+				),
+				'fed_pay_admin_invoice_template' => array(
+					'icon'      => 'fa fa-file-invoice-dollar',
+					'name'      => __( 'Invoice Templates', 'frontend-dashboard-payment-payment' ),
+					'callable'  => array( 'object' => new FED_Pay_Invoice(), 'method' => 'fed_pay_admin_invoice_templates_tab' ),
 					'arguments' => $fed_admin_options
 				),
 			);
@@ -64,6 +74,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 		 * @param $fed_admin_options
 		 */
 		public function fed_pay_admin_paypal_api_tab( $fed_admin_options ) {
+
 			$array = array(
 				'form'  => array(
 					'method' => '',
@@ -80,7 +91,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 						'input'        => fed_get_input_details( array(
 							'input_meta'  => 'paypal[api][type]',
 							'input_value' => array( 'Sandbox' => 'Sandbox', 'Live' => 'Live' ),
-							'user_value'  => isset( $fed_admin_options['paypal']['api']['type'] ) ? $fed_admin_options['paypal']['api']['type'] : '',
+							'user_value'  => isset( $fed_admin_options['settings']['paypal']['api']['type'] ) ? $fed_admin_options['settings']['paypal']['api']['type'] : '',
 							'input_type'  => 'select'
 						) ),
 						'help_message' => fed_show_help_message( array( 'content' => "Please check What is <a href='https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/'>Sandbox</a> | <a href='https://developer.paypal.com/docs/classic/lifecycle/goingLive/'>Live</a>" ) )
@@ -112,7 +123,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 						'input'        => fed_get_input_details( array(
 							'placeholder' => __( 'Please enter PayPal Sandbox Client ID', 'frontend-dashboard-payment' ),
 							'input_meta'  => 'paypal[api][sandbox_client_id]',
-							'user_value'  => isset( $fed_admin_options['paypal']['api']['sandbox_client_id'] ) ? $fed_admin_options['paypal']['api']['sandbox_client_id'] : '',
+							'user_value'  => isset( $fed_admin_options['settings']['paypal']['api']['sandbox_client_id'] ) ? $fed_admin_options['settings']['paypal']['api']['sandbox_client_id'] : '',
 							'input_type'  => 'single_line'
 						) ),
 						'help_message' => fed_show_help_message( array( 'content' => "Please login in to PayPal and use this <a href='https://developer.paypal.com/developer/applications/'>PayPal API</a> to create the REST API apps" ) )
@@ -123,7 +134,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 						'input'        => fed_get_input_details( array(
 							'placeholder' => __( 'Please enter PayPal Sandbox Secrete ID', 'frontend-dashboard-payment' ),
 							'input_meta'  => 'paypal[api][sandbox_secrete_id]',
-							'user_value'  => isset( $fed_admin_options['paypal']['api']['sandbox_secrete_id'] ) ? $fed_admin_options['paypal']['api']['sandbox_secrete_id'] : '',
+							'user_value'  => isset( $fed_admin_options['settings']['paypal']['api']['sandbox_secrete_id'] ) ? $fed_admin_options['settings']['paypal']['api']['sandbox_secrete_id'] : '',
 							'input_type'  => 'single_line'
 						) ),
 						'help_message' => fed_show_help_message( array( 'content' => "Please login in to PayPal and use this <a href='https://developer.paypal.com/developer/applications/'>PayPal API</a> to create the REST API apps" ) )
@@ -134,7 +145,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 						'input'        => fed_get_input_details( array(
 							'placeholder' => __( 'Please enter PayPal Live Client ID', 'frontend-dashboard-payment' ),
 							'input_meta'  => 'paypal[api][live_client_id]',
-							'user_value'  => isset( $fed_admin_options['paypal']['api']['live_client_id'] ) ? $fed_admin_options['paypal']['api']['live_client_id'] : '',
+							'user_value'  => isset( $fed_admin_options['settings']['paypal']['api']['live_client_id'] ) ? $fed_admin_options['settings']['paypal']['api']['live_client_id'] : '',
 							'input_type'  => 'single_line'
 						) ),
 						'help_message' => fed_show_help_message( array( 'content' => "Please login in to PayPal and use this <a href='https://developer.paypal.com/developer/applications/'>PayPal API</a> to create the REST API apps" ) )
@@ -145,7 +156,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 						'input'        => fed_get_input_details( array(
 							'placeholder' => __( 'Please enter PayPal Live Secrete ID', 'frontend-dashboard-payment' ),
 							'input_meta'  => 'paypal[api][live_secrete_id]',
-							'user_value'  => isset( $fed_admin_options['paypal']['api']['live_secrete_id'] ) ? $fed_admin_options['paypal']['api']['live_secrete_id'] : '',
+							'user_value'  => isset( $fed_admin_options['settings']['paypal']['api']['live_secrete_id'] ) ? $fed_admin_options['settings']['paypal']['api']['live_secrete_id'] : '',
 							'input_type'  => 'single_line'
 						) ),
 						'help_message' => fed_show_help_message( array( 'content' => "Please login in to PayPal and use this <a href='https://developer.paypal.com/developer/applications/'>PayPal API</a> to create the REST API apps" ) )
@@ -173,7 +184,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 				?>
                 <div class="bc_fed container">
                     <div class="row">
-                        <div class="col-md-12 flex-center min_height_500px">
+                        <div class="col-md-12 flex-center min_height_400px">
                             <h1 class="text-center">Please add the PayPal Setting in <br> Frontend Dashboard >> Payments
                                 >> PayPal</h1>
                         </div>
@@ -285,6 +296,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 		 * @return string
 		 */
 		public function get_payments_index_html() {
+
 			$this->get_payment_index( true );
 		}
 
@@ -298,27 +310,27 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 
 			$html .= '<div class="row padd_top_20">
                 <div class="col-md-12">
-                <div class="dropdown fed_payment_dropdown">
+                <div class="dropdown fed_payment_dropdown open">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="paypal"
                             data-toggle="dropdown">
-                        <i class="fa fa-paypal" aria-hidden="true"></i> PayPal
+                        <i class="fab fa-paypal" aria-hidden="true"></i> PayPal
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="paypal">
                     <li role="separator" class="divider"></li>
                     <li class="disabled bg-primary"><a href="#">Payments</a></li>
                     <li role="separator" class="divider"></li>
-                    <li role="presentation"><a role="menuitem" class="fed_pay_get_recurring fed_replace_ajax" data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_payment_page&fed_nonce=' . wp_create_nonce( "fed_nonce" ) ) . '" ><i class="fa fa-money" aria-hidden="true"></i>  Manage Payments</a></li>
+                    <li role="presentation"><a role="menuitem" class="fed_pay_get_recurring fed_replace_ajax" data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_payment_page&fed_nonce=' . wp_create_nonce( "fed_nonce" ) ) . '" ><i class="far fa-money-bill-alt" aria-hidden="true"></i>  Manage Payments</a></li>
                     <li role="separator" class="divider"></li>
                     <li class="disabled bg-primary"><a href="#">Recurring Plan</a></li>
                     <li role="separator" class="divider"></li>
                         <li role="presentation"><a role="menuitem"  data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_add_plan&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="fed_replace_ajax" ><i class="fa fa-plus" aria-hidden="true"></i>  Create New Recurring Plan</a></li>
                         <li role="presentation"><a role="menuitem"  class="fed_pay_get_recurring fed_replace_ajax"  data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_recurring_payments&fed_nonce=' . wp_create_nonce( "fed_nonce" ) ) . '"><i class="fa fa-building" aria-hidden="true"></i>  Manage Recurring Plans</a></li>
                         <li role="separator" class="divider"></li>
-                        <li class="disabled bg-primary"><a href="#">Single Plan</a></li>
+                        <li class="disabled bg-primary"><a href="#">One Time Plan</a></li>
                     <li role="separator" class="divider"></li>
-                        <li role="presentation"><a role="menuitem"  data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_single_show&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="fed_replace_ajax" ><i class="fa fa-plus" aria-hidden="true"></i>  Create New Single Plan</a></li>
-                        <li role="presentation"><a role="menuitem"  class="fed_pay_single_list fed_replace_ajax"  data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_single_list&fed_nonce=' . wp_create_nonce( "fed_nonce" ) ) . '"><i class="fa fa-building" aria-hidden="true"></i>  Manage Single Plans</a></li>
+                        <li role="presentation"><a role="menuitem"  data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_single_show&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="fed_replace_ajax" ><i class="fa fa-plus" aria-hidden="true"></i>  Create New One Time Plan</a></li>
+                        <li role="presentation"><a role="menuitem"  class="fed_pay_single_list fed_replace_ajax"  data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_single_list&fed_nonce=' . wp_create_nonce( "fed_nonce" ) ) . '"><i class="fa fa-building" aria-hidden="true"></i>  Manage One Time Plans</a></li>
                     </ul>
                 </div>
                 </div>

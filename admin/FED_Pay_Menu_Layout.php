@@ -83,12 +83,14 @@ if ( ! class_exists( 'FED_Pay_Menu_Layout' ) ) {
 		 * @return array
 		 */
 		public function fed_pay_admin_dashboard_settings_menu_header( $menu ) {
+			$settings        = get_option( 'fed_admin_settings_payments' );
 			$menu['payment'] = array(
 				'icon_class' => 'fa fa-credit-card',
 				'name'       => __( 'Payments', 'frontend-dashboard-payment-payment' ),
 				'callable'   => array(
 					'object' => new FED_Pay_Recurring(),
-					'method' => 'fed_pay_admin_payment_options_tab'
+					'method' => 'fed_pay_admin_payment_options_tab',
+					'parameters' => array( 'settings' => $settings ),
 				),
 			);
 

@@ -2,21 +2,7 @@
 
 namespace FED_PayPal_Admin;
 
-
-use function bcdump;
-use function class_exists;
-use function esc_attr;
-use function fed_get_currency_type_key_value;
-use function fed_get_date_formats;
-use function fed_get_input_details;
-use function fed_get_input_group;
 use FED_Log;
-use function fed_verify_nonce;
-use function get_current_user_id;
-use function mt_rand;
-use function serialize;
-use function wp_send_json_error;
-use function wp_send_json_success;
 
 if ( ! class_exists( 'FED_Pay_Single' ) ) {
 	/**
@@ -66,6 +52,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 			FED_Log::writeLog( $status );
 			wp_send_json_error( array( 'message' => 'Something went wrong' ) );
 		}
+
 		public function single_update() {
 			$request = $_REQUEST;
 			global $wpdb;
@@ -99,23 +86,31 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 			}
 			$list = fed_fetch_table_row_by_id( BC_FED_PAY_PAYMENT_PLAN_TABLE, (int) $request['id'] );
 
-			wp_send_json_success( array( 'html' => $this->single_edit_html($list) ) );
+			wp_send_json_success( array( 'html' => $this->single_edit_html( $list ) ) );
 		}
 
 		/**
+		 * @param $list
+		 *
 		 * @return string
 		 */
-		public function single_edit_html($list) {
-			$message = '
+		public function single_edit_html( $list ) {
+			$item_lists = unserialize( $list['item_lists'] );
+			$amount     = unserialize( $list['amount'] );
+			$message    = '';
+
+			$message .= '
 			<div class="row padd_top_20">
 				<div class="col-md-12">
 					<button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_payment_index&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-secondary pull-right fed_replace_ajax"><span class="fa fa-mail-forward"></span> Back to Payment Dashboard</button>
+					
+					<button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_single_list&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-secondary pull-right fed_replace_ajax m-r-10""><span class="fa fa-mail-forward"></span> Back to Manage One Time Plan</button>
 				</div>
 				<form class="fed_update_single_plan_form fed_ajax" action="' . admin_url( 'admin-ajax.php?action=fed_pay_single_update&fed_nonce=' . wp_create_nonce( "fed_nonce" ) ) . '" method="post">
 					<div class="col-md-12 padd_top_20">
 				<div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Update '.esc_attr( $list['name']).'</h3>
+                    <h3 class="panel-title">View ' . esc_attr( $list['plan_name'] ) . ' [ View Only ]</h3>
                 </div>
                 <div class="panel-body">
                     <div class="fed_pay_single_payments">
@@ -132,7 +127,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 											' . fed_get_input_details( array(
 					'placeholder' => 'Please enter Name for this Plan',
 					'input_meta'  => 'name',
-					'user_value'  => '',
+					'user_value'  => $list['plan_name'],
 					'input_type'  => 'single_line',
 				) ) . '
 	                                    </div>
@@ -145,7 +140,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 											' . fed_get_input_details( array(
 					'placeholder' => 'Please enter description for Plan',
 					'input_meta'  => 'description',
-					'user_value'  => '',
+					'user_value'  => isset( $list['description'] ) ? $list['description'] : '',
 					'input_type'  => 'single_line',
 				) ) . '
 	                                    </div>
@@ -157,7 +152,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 			                                ' . fed_get_input_details( array(
 					'input_value' => fed_get_currency_type_key_value(),
 					'input_meta'  => 'amount[currency]',
-					'user_value'  => '',
+					'user_value'  => isset( $amount['currency'] ) ? $amount['currency'] : '',
 					'input_type'  => 'select',
 				) ) . '
 	                                    </div>
@@ -168,8 +163,8 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 			                                ' . fed_get_input_details( array(
 					'placeholder' => 'Shipping Cost',
 					'input_meta'  => 'amount[details][shipping]',
-					'user_value'  => '',
-					'input_type'  => 'number',
+					'user_value'  => isset( $amount['details']['shipping'] ) ? $amount['details']['shipping'] : '',
+					'input_type'  => 'single_line',
 				) ) . '
 	                                    </div>
 	                                    </div>
@@ -179,8 +174,8 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 			                                ' . fed_get_input_details( array(
 					'placeholder' => 'Gift Wrap',
 					'input_meta'  => 'amount[details][gift_wrap]',
-					'user_value'  => '',
-					'input_type'  => 'number',
+					'user_value'  => isset( $amount['details']['gift_wrap'] ) ? $amount['details']['gift_wrap'] : '',
+					'input_type'  => 'single_line',
 				) ) . '
 	                                    </div>
 	                                    </div>
@@ -190,8 +185,8 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 			                                ' . fed_get_input_details( array(
 					'placeholder' => 'Shipping Cost',
 					'input_meta'  => 'amount[details][handling_fee]',
-					'user_value'  => '',
-					'input_type'  => 'number',
+					'user_value'  => isset( $amount['details']['handling_fee'] ) ? $amount['details']['handling_fee'] : '',
+					'input_type'  => 'single_line',
 				) ) . '
 	                                    </div>
 	                                    </div>
@@ -203,13 +198,13 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 					fed_get_input_details( array(
 						'placeholder' => 'Tax',
 						'input_meta'  => 'amount[details][tax]',
-						'user_value'  => '',
-						'input_type'  => 'number',
+						'user_value'  => isset( $amount['details']['tax'] ) ? $amount['details']['tax'] : '',
+						'input_type'  => 'single_line',
 					) ),
 					fed_get_input_details( array(
 						'input_value' => array( 'percentage' => '%', 'fixed' => 'Fixed Amount' ),
 						'input_meta'  => 'amount[details][tax_type]',
-						'user_value'  => '',
+						'user_value'  => isset( $amount['details']['tax_type'] ) ? $amount['details']['tax_type'] : '',
 						'input_type'  => 'select',
 					) )
 				) ) . '
@@ -222,13 +217,13 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 					fed_get_input_details( array(
 						'placeholder' => 'Shipping Discount',
 						'input_meta'  => 'amount[details][shipping_discount]',
-						'user_value'  => '',
-						'input_type'  => 'number',
+						'user_value'  => isset( $amount['details']['shipping_discount'] ) ? $amount['details']['shipping_discount'] : '',
+						'input_type'  => 'single_line',
 					) ),
 					fed_get_input_details( array(
 						'input_value' => array( 'percentage' => '%', 'fixed' => 'Fixed Amount' ),
 						'input_meta'  => 'amount[details][shipping_discount_type]',
-						'user_value'  => '',
+						'user_value'  => isset( $amount['details']['shipping_discount_type'] ) ? $amount['details']['shipping_discount_type'] : '',
 						'input_type'  => 'select',
 					) )
 				) ) . '
@@ -241,13 +236,13 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 					fed_get_input_details( array(
 						'placeholder' => 'Insurance',
 						'input_meta'  => 'amount[details][insurance]',
-						'user_value'  => '',
-						'input_type'  => 'number',
+						'user_value'  => isset( $amount['details']['insurance'] ) ? $amount['details']['insurance'] : '',
+						'input_type'  => 'single_line',
 					) ),
 					fed_get_input_details( array(
 						'input_value' => array( 'percentage' => '%', 'fixed' => 'Fixed Amount' ),
 						'input_meta'  => 'amount[details][insurance_type]',
-						'user_value'  => '',
+						'user_value'  => isset( $amount['details']['insurance_type'] ) ? $amount['details']['insurance_type'] : '',
 						'input_type'  => 'select',
 					) )
 				) ) . '
@@ -263,18 +258,19 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 			                                ' . fed_get_input_details( array(
 					'placeholder' => 'Please enter Note to Payee',
 					'input_meta'  => 'note_to_payee',
-					'user_value'  => '',
+					'user_value'  => isset( $list['note_to_payee'] ) ? $list['note_to_payee'] : '',
 					'input_type'  => 'multi_line',
 				) ) . '
 	                                    </div>
 	                                </div>
                                 </div>
-                                
-                                <button  data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_single_show_get_item&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '"  class="btn btn-secondary pull-right fed_add_new_single_item m-b-20">Add New Item</button>
                                 <div class="clearfix"></div>
-                                <div class="fed_pay_single_item_wrapper">
-                                    ' . $this->item() . '
-                                    </div>
+                                <div class="fed_pay_single_item_wrapper">';
+
+			foreach ( $item_lists as $item ) {
+				$message .= $this->item( $item );
+			}
+			$message .= ' </div>
                                 </div>
                                 
                             </div>
@@ -285,16 +281,12 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 								' . fed_get_input_details( array(
 					'input_value' => array( 'INACTIVE' => 'INACTIVE', 'ACTIVE' => 'ACTIVE' ),
 					'input_meta'  => 'status',
-					'user_value'  => '',
+					'user_value'  => isset( $list['status'] ) ? $list['status'] : '',
 					'input_type'  => 'select',
 				) ) . '
                             </div>
 
                         </div>
-                        
-                        <div class="fed_submit_button">
-                        <button class="btn btn-primary" type="submit">Submit</button>
-</div>
                     </div>
                 </div>
             </div>
@@ -323,7 +315,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 				<div class="col-md-12 padd_top_20">
 				<div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Single Plan List</h3>
+                    <h3 class="panel-title">One Time Plan List</h3>
                 </div>
                 <div class="panel-body">
 				<div class="table-responsive">
@@ -390,7 +382,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 					<div class="col-md-12 padd_top_20">
 				<div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Add New Single Plan</h3>
+                    <h3 class="panel-title">Add New One Time Plan</h3>
                 </div>
                 <div class="panel-body">
                     <div class="fed_pay_single_payments">
@@ -444,7 +436,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 					'placeholder' => 'Shipping Cost',
 					'input_meta'  => 'amount[details][shipping]',
 					'user_value'  => '',
-					'input_type'  => 'number',
+					'input_type'  => 'single_line',
 				) ) . '
 	                                    </div>
 	                                    </div>
@@ -455,7 +447,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 					'placeholder' => 'Gift Wrap',
 					'input_meta'  => 'amount[details][gift_wrap]',
 					'user_value'  => '',
-					'input_type'  => 'number',
+					'input_type'  => 'single_line',
 				) ) . '
 	                                    </div>
 	                                    </div>
@@ -466,7 +458,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 					'placeholder' => 'Shipping Cost',
 					'input_meta'  => 'amount[details][handling_fee]',
 					'user_value'  => '',
-					'input_type'  => 'number',
+					'input_type'  => 'single_line',
 				) ) . '
 	                                    </div>
 	                                    </div>
@@ -479,7 +471,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 						'placeholder' => 'Tax',
 						'input_meta'  => 'amount[details][tax]',
 						'user_value'  => '',
-						'input_type'  => 'number',
+						'input_type'  => 'single_line',
 					) ),
 					fed_get_input_details( array(
 						'input_value' => array( 'percentage' => '%', 'fixed' => 'Fixed Amount' ),
@@ -498,7 +490,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 						'placeholder' => 'Shipping Discount',
 						'input_meta'  => 'amount[details][shipping_discount]',
 						'user_value'  => '',
-						'input_type'  => 'number',
+						'input_type'  => 'single_line',
 					) ),
 					fed_get_input_details( array(
 						'input_value' => array( 'percentage' => '%', 'fixed' => 'Fixed Amount' ),
@@ -517,7 +509,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 						'placeholder' => 'Insurance',
 						'input_meta'  => 'amount[details][insurance]',
 						'user_value'  => '',
-						'input_type'  => 'number',
+						'input_type'  => 'single_line',
 					) ),
 					fed_get_input_details( array(
 						'input_value' => array( 'percentage' => '%', 'fixed' => 'Fixed Amount' ),
@@ -683,7 +675,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 			}
 			foreach ( $request['item'] as $item ) {
 				$list[] = array(
-					'name'        => fed_sanitize_text_field( $item['plan_name'] ),
+					'name'        => fed_sanitize_text_field( $item['name'] ),
 					'description' => fed_sanitize_text_field( $item['description'] ),
 					'quantity'    => fed_sanitize_text_field( $item['quantity'] ),
 					'url'         => fed_sanitize_text_field( $item['url'] ),
@@ -744,23 +736,32 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 
 		}
 
-		public function item() {
+		/**
+		 * @param null $item
+		 *
+		 * @return string
+		 */
+		public function item( $item = null ) {
 			$random = mt_rand( 99, 99999 );
+			$html   = '';
 
-			return '<div class="fed_pay_single_item">
-<div class="fed_pay_close_container_item">
+			$html .= '<div class="fed_pay_single_item">';
+
+			if ( $item === null ) {
+				$html .= '<div class="fed_pay_close_container_item">
 <div class="fed_pay_close">
 X
 </div>
-</div>
-                                    <div class="row">
+</div>';
+			}
+			$html .= '<div class="row">
                                     <div class="col-md-4">
                                     <div class="form-group">
                                             <label>Plan Name</label>
 		                                    ' . fed_get_input_details( array(
 					'placeholder' => 'Plan Name',
-					'input_meta'  => 'item[' . $random . '][plan_name]',
-					'user_value'  => '',
+					'input_meta'  => 'item[' . $random . '][name]',
+					'user_value'  => $item !== null ? $item['name'] : '',
 					'input_type'  => 'single_line',
 				) ) . '
                                         </div>
@@ -771,7 +772,7 @@ X
 		                                    ' . fed_get_input_details( array(
 					'placeholder' => 'Please enter description for Item',
 					'input_meta'  => 'item[' . $random . '][description]',
-					'user_value'  => '',
+					'user_value'  => $item !== null ? $item['description'] : '',
 					'input_type'  => 'single_line',
 				) ) . '
                                         </div>
@@ -782,8 +783,8 @@ X
 		                                    ' . fed_get_input_details( array(
 					'placeholder' => 'Please enter quantity for Item',
 					'input_meta'  => 'item[' . $random . '][quantity]',
-					'user_value'  => '',
-					'input_type'  => 'number',
+					'user_value'  => $item !== null ? $item['quantity'] : '',
+					'input_type'  => 'single_line',
 				) ) . '
                                         </div>
                                         </div>
@@ -794,8 +795,8 @@ X
 		                                    ' . fed_get_input_details( array(
 					'placeholder' => 'Please enter Price for this Item',
 					'input_meta'  => 'item[' . $random . '][price]',
-					'user_value'  => '',
-					'input_type'  => 'number',
+					'user_value'  => $item !== null ? $item['price'] : '',
+					'input_type'  => 'single_line',
 				) ) . '
                                         </div>
                                         </div>
@@ -805,7 +806,7 @@ X
 		                                    ' . fed_get_input_details( array(
 					'placeholder' => 'Please enter SKU for this Item',
 					'input_meta'  => 'item[' . $random . '][sku]',
-					'user_value'  => '',
+					'user_value'  => $item !== null ? $item['sku'] : '',
 					'input_type'  => 'single_line',
 				) ) . '
                                         </div>
@@ -816,7 +817,7 @@ X
 		                                    ' . fed_get_input_details( array(
 					'placeholder' => 'Please enter Item URL',
 					'input_meta'  => 'item[' . $random . '][url]',
-					'user_value'  => '',
+					'user_value'  => $item !== null ? $item['url'] : '',
 					'input_type'  => 'url',
 				) ) . '
                                         </div>
@@ -828,13 +829,13 @@ X
 					fed_get_input_details( array(
 						'placeholder' => 'Please enter Tax for this Item',
 						'input_meta'  => 'item[' . $random . '][tax]',
-						'user_value'  => '',
-						'input_type'  => 'number',
+						'user_value'  => $item !== null ? $item['tax'] : '',
+						'input_type'  => 'single_line',
 					) ),
 					fed_get_input_details( array(
 						'input_value' => array( 'percentage' => '%', 'fixed' => 'Fixed Amount' ),
 						'input_meta'  => 'item[' . $random . '][tax_type]',
-						'user_value'  => '',
+						'user_value'  => $item !== null ? $item['tax_type'] : '',
 						'input_type'  => 'select',
 					) )
 				) ) . '
@@ -843,6 +844,8 @@ X
                                         </div>
                                     </div>
                                     </div>';
+
+			return $html;
 		}
 
 		public function get_item() {
