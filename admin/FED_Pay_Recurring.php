@@ -217,7 +217,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
                                     <h3 class="fed_header_font_color">
                                     Plan Details
                                     <button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_add_plan&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-primary fed_replace_ajax"><i class="fa fa-plus"></i> Add New Plan</button>
-                                    <button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_payment_index&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-secondary pull-right fed_replace_ajax"><span class="fa fa-mail-forward"></span> Back to Payment Dashboard</button>
+                                    <button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_payment_index&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-secondary pull-right fed_replace_ajax"><span class="fas fa-redo"></span> Back to Payment Dashboard</button>
                                     </h3>
                                 </div>
                 </div>
@@ -365,7 +365,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
                                 <div class="fed_page_title">
                                     <h3 class="fed_header_font_color">
                                     Payment Details
-                                    <button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_payment_index&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-secondary pull-right fed_replace_ajax"><span class="fa fa-mail-forward"></span> Back to Payment Dashboard</button>
+                                    <button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_payment_index&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-secondary pull-right fed_replace_ajax"><span class="fas fa-redo"></span> Back to Payment Dashboard</button>
                                     </h3>
                                 </div>
                                 <div class="fed_payment_list  padd_top_20">
@@ -434,7 +434,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 				
 <div class="row padd_top_20">
 <div class="col-md-12 m-b-10">
-<button class="btn btn-secondary fed_pay_get_recurring fed_replace_ajax pull-right" data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_recurring_payments&fed_nonce=' . wp_create_nonce( "fed_nonce" ) ) . '"> <i class="fa fa-mail-forward" aria-hidden="true"></i> Back to Plan List</button>
+<button class="btn btn-secondary fed_pay_get_recurring fed_replace_ajax pull-right" data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_recurring_payments&fed_nonce=' . wp_create_nonce( "fed_nonce" ) ) . '"> <i class="fas fa-redo" aria-hidden="true"></i> Back to Plan List</button>
 </div>
 <div class="col-md-12">
 <div class="panel panel-primary">
@@ -442,7 +442,8 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
                     <h3 class="panel-title">Add New Plan</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="row padd_top_20">
+                <div class="fed_pay_recurring_details_wrapper">
+                    <div class="row">
                         <div class="col-md-4">
                             <!--                    Name-->
                             <div class="form-group">
@@ -454,7 +455,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
                             </div>
                             </div>
                             <!--                    Type-->
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                             <div class="form-group">
                                 <label class="control-label">Type</label>
                                 ' . fed_get_input_details( array(
@@ -468,13 +469,13 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
                             </div>
                             </div>
                             <!--                    Description-->
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Description</label>
                                 ' . fed_get_input_details( array(
 					'input_type' => 'multi_line',
 					'input_meta' => 'description',
-					'rows'       => '2'
+					'rows'       => '1'
 				) ) . '
                             </div>
                             </div>
@@ -493,9 +494,9 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 				) ) . '
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                             <div class="form-group">
-                                                    <label class="control-label">Initial Fail Amount Action</label>
+                                                    <label class="control-label">Fail Action</label>
                                                     ' . fed_get_input_details( array(
 					'input_type'  => 'select',
 					'input_meta'  => 'fail_amount_action',
@@ -517,7 +518,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 				) ) . '
                             </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                             <!--                    Name-->
                             <div class="form-group">
                                 <label class="control-label">Setup Fee</label>
@@ -540,6 +541,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 </div>
 
                                         </div>
+                                    </div>
                                     </div>
                                     <div class="fed_payment_definition_container">
                                     <h3 class="m-b-20">Payment Definition <button data-url="' . admin_url( 'admin-ajax.php?action=fed_add_new_payment_definition_html&fed_nonce=' . wp_create_nonce( "fed_nonce" ) ) . '" class="fed_add_new_payment_definition btn btn-secondary"><i class="fa fa-plus" aria-hidden="true"></i> Add New Payment Definition</button></h3>
@@ -601,13 +603,13 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 		public function get_preference_container() {
 			$random = mt_rand( 99, 999 );
 			$html   = '';
-			$html   .= '<div class="payment_definition_wrapper fed_pay_close_wrapper bg-info p-10">
+			$html   .= '<div class="payment_definition_wrapper fed_pay_close_wrapper p-10">
 <div class="fed_pay_close_container">
 <div class="fed_pay_close">
 X
 </div>
 </div>
-                                    <div class="payment_definition  bg-warning p-10 m-b-10">
+                                    <div class="payment_definition p-10">
                                     <div class="row">
                                     <div class="col-md-4">
                                     <div class="form-group">
@@ -675,7 +677,7 @@ X
 </div>
                                     </div>
                                     </div>
-                                    <div class="charge_container  bg-warning p-10">
+                                    <div class="charge_container">
 
                                         <h3>Charges</h3>
                                         <div class="row">

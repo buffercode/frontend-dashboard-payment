@@ -1,6 +1,6 @@
 .fed_shipping_container,
 .fed_tax_container{
-    background: #d9d9d9;
+    border: 7px solid #ffffff;
     padding:20px;
     margin-right: 5px;
 }
@@ -28,7 +28,9 @@
     margin-bottom: 20px;
 }
 
-.bc_fed .fed_pay_single_transaction_wrapper {
+.bc_fed .fed_pay_single_transaction_wrapper,
+.bc_fed .fed_pay_recurring_details_wrapper,
+.bc_fed .payment_definition_wrapper {
     padding: 20px;
     background: #0aaaaa;
     color: white;

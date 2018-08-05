@@ -102,9 +102,9 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 			$message .= '
 			<div class="row padd_top_20">
 				<div class="col-md-12">
-					<button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_payment_index&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-secondary pull-right fed_replace_ajax"><span class="fa fa-mail-forward"></span> Back to Payment Dashboard</button>
+					<button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_payment_index&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-secondary pull-right fed_replace_ajax"><span class="fas fa-redo"></span> Back to Payment Dashboard</button>
 					
-					<button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_single_list&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-secondary pull-right fed_replace_ajax m-r-10""><span class="fa fa-mail-forward"></span> Back to Manage One Time Plan</button>
+					<button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_single_list&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-secondary pull-right fed_replace_ajax m-r-10""><span class="fas fa-redo"></span> Back to Manage One Time Plan</button>
 				</div>
 				<form class="fed_update_single_plan_form fed_ajax" action="' . admin_url( 'admin-ajax.php?action=fed_pay_single_update&fed_nonce=' . wp_create_nonce( "fed_nonce" ) ) . '" method="post">
 					<div class="col-md-12 padd_top_20">
@@ -309,7 +309,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 			$html .= '
 				<div class="row padd_top_20">
 				<div class="col-md-12">
-				<button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_payment_index&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-secondary pull-right fed_replace_ajax"><span class="fa fa-mail-forward"></span> Back to Payment Dashboard</button>
+				<button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_payment_index&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-secondary pull-right fed_replace_ajax"><span class="fas fa-redo"></span> Back to Payment Dashboard</button>
 				</div>
 				
 				<div class="col-md-12 padd_top_20">
@@ -376,7 +376,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 			$message = '
 			<div class="row padd_top_20">
 				<div class="col-md-12">
-					<button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_payment_index&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-secondary pull-right fed_replace_ajax"><span class="fa fa-mail-forward"></span> Back to Payment Dashboard</button>
+					<button data-url="' . admin_url( 'admin-ajax.php?action=fed_pay_payment_index&fed_nonce=' . wp_create_nonce( 'fed_nonce' ) ) . '" class="btn btn-secondary pull-right fed_replace_ajax"><span class="fas fa-redo"></span> Back to Payment Dashboard</button>
 				</div>
 				<form class="fed_save_single_plan_form fed_ajax" action="' . admin_url( 'admin-ajax.php?action=fed_pay_single_save&fed_nonce=' . wp_create_nonce( "fed_nonce" ) ) . '" method="post">
 					<div class="col-md-12 padd_top_20">
