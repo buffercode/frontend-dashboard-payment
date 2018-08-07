@@ -176,7 +176,7 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 			if ( $paypal->is_true() ) {
 				echo '<div class="bc_fed container">
 ' . fed_loader( 'hide', 'Please wait, it may take some time to load from PayPal' ) . '
-<div class="fed_ajax_replace_container">
+<div class="fed_ajax_replace_container bc_fed_wrapper">
 ' . $this->get_payment_index( false ) . '
             </div>
             </div>';
