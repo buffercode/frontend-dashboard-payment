@@ -72,7 +72,10 @@ if ( ! class_exists( 'FED_Pay_Invoice' ) ) {
 		}
 
 
-		public function fed_pay_admin_invoice_details_tab( $settings ) {
+        /**
+         * @param $settings
+         */
+        public function fed_pay_admin_invoice_details_tab( $settings ) {
 			$array = array(
 				'form'  => array(
 					'method' => '',
@@ -210,7 +213,10 @@ if ( ! class_exists( 'FED_Pay_Invoice' ) ) {
 			fed_common_simple_layout( $new_value );
 		}
 
-		public function fed_pay_admin_invoice_templates_tab( $settings ) {
+        /**
+         * @param $settings
+         */
+        public function fed_pay_admin_invoice_templates_tab( $settings ) {
 			$templates = fed_pay_invoice_templates();
 			?>
             <div class="p-20">
