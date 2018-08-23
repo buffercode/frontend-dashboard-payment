@@ -397,7 +397,8 @@ if ( ! class_exists( 'FED_Pay_Recurring' ) ) {
 							$html       .= '<td>' . $total . '</td>';
 							$html       .= '<td>' . $transactions['invoice_number'] . '</td>';
 							$html       .= '<td>' . $payment['state'] . '</td>';
-							$html       .= '<td>' . date_i18n( get_option( 'date_format' ), strtotime( $payment['create_time'] ) ) . '</td>';
+//							$html       .= '<td>' . date_i18n( get_option( 'date_format' ), strtotime( $payment['create_time'] ) ) . '</td>';
+							$html       .= '<td>' . $payment['create_time'] . '</td>';
 							$html       .= '<td>';
 							$html       .= '<a class="btn btn-primary" href="' . fed_generate_url( array(
 									'transaction_id' => $payment['id'],

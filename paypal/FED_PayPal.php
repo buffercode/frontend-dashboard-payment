@@ -28,6 +28,7 @@ use PayPal\Api\Payment;
 use PayPal\Api\PaymentDefinition;
 use PayPal\Api\PaymentDetail;
 use PayPal\Api\PaymentExecution;
+use PayPal\Api\PaymentOptions;
 use PayPal\Api\PaymentTerm;
 use PayPal\Api\Payout;
 use PayPal\Api\PayoutItem;
@@ -182,6 +183,16 @@ class FED_PayPal
                     ->setItemList($itemList)
                     ->setDescription("Payment description")
                     ->setInvoiceNumber(uniqid(date('Ymd-'), false));
+
+            if ($__transaction['custom'] !== null) {
+                $_transaction->setCustom(serialize($__transaction['custom']));
+            }
+
+            $payment_options = new PaymentOptions();
+            $payment_options->setAllowedPaymentMethod('INSTANT_FUNDING_SOURCE');
+
+            $_transaction->setPaymentOptions($payment_options);
+
             $transactions[] = $_transaction;
         }
 
@@ -227,11 +238,8 @@ class FED_PayPal
 // The API response provides the url that you must redirect
 // the buyer to. Retrieve the url from the $payment->getApprovalLink()
 // method
-        FED_Log::writeLog('am in');
 
         $approvalUrl = $payments->getApprovalLink();
-
-        FED_Log::writeLog($approvalUrl);
 
         wp_send_json_success(array('url' => $approvalUrl));
 
@@ -240,32 +248,52 @@ class FED_PayPal
 
 
     /**
+     * @param $request
+     *
      * @return false|\PayPal\Api\Payment|string
      */
-    public function payment_success()
+    public function payment_success($request)
     {
-        $request = $_REQUEST;
 
         if ( ! isset($request['paymentId']) && ! isset($request['PayerID'])) {
             return $this->payment_cancel();
         }
 
-        $paymentId = $request->paymentId;
+//        FED_Log::writeLog('$request');
+//        FED_Log::writeLog($request);
+
+        $paymentId = $request['paymentId'];
         $payment   = Payment::get($paymentId, $this->paypal);
 
+//        FED_Log::writeLog('$payment');
+//        FED_Log::writeLog($payment);
+
         $execution = new PaymentExecution();
-        $execution->setPayerId($request->PayerID);
+        $execution->setPayerId($request['PayerID']);
+
+//        FED_Log::writeLog('$execution');
+//        FED_Log::writeLog($execution);
 
         try {
             $result = $payment->execute($execution, $this->paypal);
-            FED_Log::writeLog($result);
+//            FED_Log::writeLog('$result');
+//            FED_Log::writeLog($result);
+
+            /**
+             * Save One Time [one_time]
+             */
+            $this->saveOneTimePayment($result);
+
+
+
         } catch (Exception $e) {
             FED_Log::writeLog('Problem in PayPal Payment on function paypal_success at PaypalController');
 
             wp_die('Something went wrong, please contact admin');
         }
 
-        return $result;
+        wp_redirect(add_query_arg(array('fed_m_payment_status' => 'success'),
+                $this->success_url));
     }
 
     /**
@@ -279,6 +307,10 @@ class FED_PayPal
 
     /**
      * Get Payment By Payment ID
+     *
+     * @param $transaction_id
+     *
+     * @return array
      */
     public function get_payment_by_id($transaction_id)
     {
@@ -296,8 +328,13 @@ class FED_PayPal
 
     /**
      * Get payment by count - max 100
+     *
+     * @param int $count
+     * @param int $index
+     *
+     * @return \PayPal\Api\PaymentHistory
      */
-    public function get_payments($count = 20, $index = 1)
+    public function get_payments($count = 50, $index = 1)
     {
         try {
             $params = array('count' => $count, 'start_index' => $index);
@@ -311,12 +348,11 @@ class FED_PayPal
 //		foreach($payments->getPayments() as $payment){
 //		    print_r($payment);
 //        }
-        FED_Log::writeLog($payments->getPayments());
+//        FED_Log::writeLog($payments->getPayments());
 
         return $payments;
 //		return $payments->getPayments();
     }
-
 
     /**
      * Not working
@@ -1211,6 +1247,41 @@ class FED_PayPal
         FED_Log::writeLog(Template::get($templateId, $this->paypal));
 
         return Template::get($templateId, $this->paypal);
+    }
+
+
+    /**
+     * @param \PayPal\Api\Payment $result
+     *
+     * @return false|int
+     */
+    private function saveOneTimePayment(Payment $result)
+    {
+        $transactions    = $result->getTransactions();
+        $payer           = $result->getPayer()->getPayerInfo();
+        $current_user_id = get_current_user_id();
+        if ($current_user_id) {
+            foreach ($transactions as $transaction) {
+                $custom = unserialize($transaction->getCustom());
+
+                $data = array(
+                        'user_id'        => (int) $current_user_id,
+                        'plan_name'      => $custom['plan_name'],
+                        'plan_id'        => $custom['plan_id'],
+                        'plan_type'      => $custom['plan_type'],
+                        'payment_id'     => $result->id,
+                        'invoice_number' => $transaction->getInvoiceNumber(),
+                        'payer_id'       => $payer->payer_id,
+                        'payment_source' => 'paypal',
+                        'created'        => $result->create_time,
+                        'updated'        => $result->update_time,
+                        'trail_ends'     => null,
+                        'ends'           => null,
+                );
+
+                return fed_insert_new_row(BC_FED_PAY_PAYMENT_TABLE, $data);
+            }
+        }
     }
 
 }
