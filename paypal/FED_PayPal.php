@@ -2,6 +2,9 @@
 
 namespace FED_PayPal;
 
+use DateInterval;
+use DateTime;
+use DateTimeZone;
 use Exception;
 use FED_Log;
 use PayPal\Api\Agreement;
@@ -285,7 +288,6 @@ class FED_PayPal
             $this->saveOneTimePayment($result);
 
 
-
         } catch (Exception $e) {
             FED_Log::writeLog('Problem in PayPal Payment on function paypal_success at PaypalController');
 
@@ -306,6 +308,51 @@ class FED_PayPal
     }
 
     /**
+     * @param \PayPal\Api\Payment $result
+     *
+     * @return false|int
+     */
+    private function saveOneTimePayment(Payment $result)
+    {
+        $transactions    = $result->getTransactions();
+        $payer           = $result->getPayer()->getPayerInfo();
+        $current_user_id = get_current_user_id();
+        if ($current_user_id) {
+            foreach ($transactions as $transaction) {
+                $custom = unserialize($transaction->getCustom());
+
+                $data = array(
+                        'user_id'        => (int)$current_user_id,
+                        'plan_name'      => $custom['plan_name'],
+                        'plan_id'        => $custom['plan_id'],
+                        'plan_type'      => $custom['plan_type'],
+                        'payment_id'     => $result->id,
+                        'invoice_number' => $transaction->getInvoiceNumber(),
+                        'payer_id'       => $payer->payer_id,
+                        'payment_source' => 'paypal',
+                        'created'        => $result->create_time,
+                        'updated'        => $result->update_time,
+                        'trail_ends'     => null,
+                        'ends'           => null,
+                );
+
+
+                do_action('fed_paypal_single_before_save_action');
+
+                $status = fed_insert_new_row(BC_FED_PAY_PAYMENT_TABLE, $data);
+
+                do_action('fed_paypal_single_after_save_action');
+
+                return $status;
+            }
+        }
+
+        FED_Log::writeLog('Problem in saving saveOneTimePayment()', 'ERROR');
+
+        wp_die('Something went wrong, please contact admin');
+    }
+
+    /**
      * Get Payment By Payment ID
      *
      * @param $transaction_id
@@ -315,7 +362,7 @@ class FED_PayPal
     public function get_payment_by_id($transaction_id)
     {
         try {
-            $payment = Payment::get($transaction_id, $this->paypal)->toArray();
+            $payment = Payment::get($transaction_id, $this->paypal);
         } catch (Exception $ex) {
             FED_Log::writeLog($ex);
             exit(1);
@@ -334,7 +381,7 @@ class FED_PayPal
      *
      * @return \PayPal\Api\PaymentHistory
      */
-    public function get_payments($count = 50, $index = 1)
+    public function get_payments($count = 100, $index = 1)
     {
         try {
             $params = array('count' => $count, 'start_index' => $index);
@@ -569,7 +616,7 @@ class FED_PayPal
     public function activate_plan($plan_id, $status = 'ACTIVE')
     {
         try {
-            $option = $status === 'DELETE' ? 'remove' : 'replace';
+            $option = ($status === 'DELETE') ? 'remove' : 'replace';
 //			FED_Log::writeLog( $plan_id );
             $patch = new Patch();
 
@@ -668,7 +715,7 @@ class FED_PayPal
      */
     public function list_plans($status = 'ACTIVE')
     {
-        $params = array('status' => $status, 'page_size' => '5', 'total_required' => 'yes');
+        $params = array('status' => $status, 'page_size' => 20, 'total_required' => 'yes');
 
         return Plan::all($params, $this->paypal);
     }
@@ -676,19 +723,56 @@ class FED_PayPal
     /**
      * Create and active billing agreement
      * part-2 : billing_agreement_success()
+     *
+     * @param \PayPal\Api\Plan $plans
+     *
+     * @return void
+     * @throws \Exception
      */
-    public function create_active_billing_agreement()
+    public function create_active_billing_agreement(Plan $plans)
     {
+        $datetime = new DateTime('now');
+        $format   = $datetime->add(new DateInterval('PT5M'))->format('c');
+
         $agreement = new Agreement();
 
-        $agreement->setName('Buy this plan')
-                ->setDescription('Buy this plan')
-                ->setStartDate('2018-07-19T23:45:04Z');
+        $merchant = new MerchantPreferences();
+
+        FED_Log::writeLog(add_query_arg(array(
+                'fed_m_subscription' => 'success',
+                'plan_id'            => $plans->getId(),
+                'plan_name'          => $plans->getName(),
+        ),$this->success_url));
+
+        $merchant->setReturnUrl(add_query_arg(array(
+                'fed_m_subscription' => 'success',
+                'plan_id'            => $plans->getId(),
+                'plan_name'          => urlencode($plans->getName()),
+        ),$this->success_url));
+
+//        $merchant->setCancelUrl($this->cancel_url);
+//        $merchant->setNotifyUrl($this->success_url);
+
+        $merchant->setAutoBillAmount('YES');
+
+        $agreement->setName($plans->getName())
+                ->setDescription($plans->getDescription())
+//                ->setStartDate('2018-08-29T23:45:04Z');
+                ->setOverrideMerchantPreferences($merchant)
+                ->setStartDate($format);
+
+//        FED_Log::writeLog('$agreement');
+//        FED_Log::writeLog($agreement);
+
+//        $this->billing_success_url = $this->success_url = add_query_arg(array(
+//                'fed_m_subscription' => 'success',
+//                'plan_id'            => $plans->getId(),
+//        ), $this->success_url);
 
 // Add Plan ID
 // Please note that the plan Id should be only set in this case.
         $plan = new Plan();
-        $plan->setId('P-6LP28471CX649530BSSRSEMI');
+        $plan->setId($plans->getId());
         $agreement->setPlan($plan);
 
 // Add Payer
@@ -697,16 +781,17 @@ class FED_PayPal
         $agreement->setPayer($payer);
 
 // Add Shipping Address
-        $shippingAddress = new ShippingAddress();
-        $shippingAddress->setLine1('111 First Street')
-                ->setCity('Saratoga')
-                ->setState('CA')
-                ->setPostalCode('95070')
-                ->setCountryCode('US');
-        $agreement->setShippingAddress($shippingAddress);
+//        $shippingAddress = new ShippingAddress();
+//        $shippingAddress->setLine1('111 First Street')
+//                ->setCity('Saratoga')
+//                ->setState('CA')
+//                ->setPostalCode('95070')
+//                ->setCountryCode('US');
+//        $agreement->setShippingAddress($shippingAddress);
 
 // ### Create Agreement
         try {
+            FED_Log::writeLog('Agreement '.$agreement);
             // Please note that as the agreement has not yet activated, we wont be receiving the ID just yet.
             $agreement = $agreement->create($this->paypal);
 
@@ -721,7 +806,9 @@ class FED_PayPal
             exit(1);
         }
 
-        return wp_redirect($approvalUrl);
+        FED_Log::writeLog('Approval URL => '.$approvalUrl);
+
+        wp_send_json_success(array('url' => $approvalUrl));
 
         //Execute agreement
 
@@ -740,24 +827,78 @@ class FED_PayPal
             $token     = $_GET['token'];
             $agreement = new Agreement();
             try {
+//                FED_Log::writeLog('token => ' . $token);
                 $agreement->execute($token, $this->paypal);
             } catch (Exception $ex) {
                 FED_Log::writeLog($ex);
                 exit(1);
             }
             try {
+                FED_Log::writeLog('Agreement_id => '.$agreement->getId());
                 $agreement = Agreement::get($agreement->getId(), $this->paypal);
             } catch (Exception $ex) {
                 FED_Log::writeLog($ex);
                 exit(1);
             }
 
-//			FED_Log::writeLog( $agreement );
+            FED_Log::writeLog('$agreement');
+            FED_Log::writeLog($agreement);
+
+            $this->saveSubscription($agreement);
+
             return $agreement;
 
         } else {
             FED_Log::writeLog('you have cancelled');
         }
+    }
+
+    /**
+     * @param \PayPal\Api\Agreement $agreement
+     *
+     * @return false|int
+     */
+    private function saveSubscription(Agreement $agreement)
+    {
+        $payer           = $agreement->getPayer()->getPayerInfo();
+        $current_user_id = get_current_user_id();
+        if ($current_user_id) {
+            $data = array(
+                    'user_id'        => (int)$current_user_id,
+                    'plan_name'      => $_REQUEST['plan_name'],
+                    'plan_id'        => $_REQUEST['plan_id'],
+                    'plan_type'      => 'subscription',
+                    'payment_id'     => $agreement->getId(),
+                    'invoice_number' => uniqid(date('Ymd-'), false),
+                    'payer_id'       => $payer->payer_id,
+                    'payment_source' => 'paypal',
+                    'created'        => $agreement->getCreateTime(),
+                    'updated'        => $agreement->getUpdateTime(),
+                    'trail_ends'     => null,
+                    'ends'           => null,
+            );
+
+
+            do_action('fed_paypal_subscription_before_save_action');
+
+            $status = fed_insert_new_row(BC_FED_PAY_PAYMENT_TABLE, $data);
+
+            if ($status) {
+                do_action('fed_paypal_subscription_after_save_action');
+
+                return $status;
+            }
+
+            FED_Log::writeLog($status, 'ERROR');
+
+
+            wp_die('Something went wrong in saveSubscription() DB Storage', 'ERROR');
+        }
+
+        FED_Log::writeLog('Problem in saving saveOneTimePayment()', 'ERROR');
+
+
+        wp_die('Something went wrong in saveSubscription(), please contact admin');
     }
 
     /**
@@ -834,6 +975,10 @@ class FED_PayPal
     }
 
     /**
+     * Invoice
+     */
+
+    /**
      * Reactive Billing Agreement
      */
     public function reactive_billing_agreement($agreement_id)
@@ -858,10 +1003,6 @@ class FED_PayPal
 //		FED_Log::writeLog( $agreement );
         return $agreement;
     }
-
-    /**
-     * Invoice
-     */
 
     /**
      * Create new Invoice
@@ -1249,39 +1390,14 @@ class FED_PayPal
         return Template::get($templateId, $this->paypal);
     }
 
-
     /**
-     * @param \PayPal\Api\Payment $result
-     *
-     * @return false|int
+     * @return \PayPal\Api\AgreementTransactions
      */
-    private function saveOneTimePayment(Payment $result)
+    public function searchAgreement()
     {
-        $transactions    = $result->getTransactions();
-        $payer           = $result->getPayer()->getPayerInfo();
-        $current_user_id = get_current_user_id();
-        if ($current_user_id) {
-            foreach ($transactions as $transaction) {
-                $custom = unserialize($transaction->getCustom());
-
-                $data = array(
-                        'user_id'        => (int) $current_user_id,
-                        'plan_name'      => $custom['plan_name'],
-                        'plan_id'        => $custom['plan_id'],
-                        'plan_type'      => $custom['plan_type'],
-                        'payment_id'     => $result->id,
-                        'invoice_number' => $transaction->getInvoiceNumber(),
-                        'payer_id'       => $payer->payer_id,
-                        'payment_source' => 'paypal',
-                        'created'        => $result->create_time,
-                        'updated'        => $result->update_time,
-                        'trail_ends'     => null,
-                        'ends'           => null,
-                );
-
-                return fed_insert_new_row(BC_FED_PAY_PAYMENT_TABLE, $data);
-            }
-        }
+        $params = array('start_date' => date('Y-m-d', strtotime('-1 month')), 'end_date' => date('Y-m-d', strtotime('+10 days')));
+        $result = Agreement::searchTransactions('I-3ADBWR9XMX0L', $params, $this->paypal);
+        return $result;
     }
 
 }

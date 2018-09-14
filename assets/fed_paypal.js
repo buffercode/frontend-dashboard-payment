@@ -171,4 +171,27 @@ jQuery(document).ready(function ($) {
         });
         e.preventDefault();
     });
+
+    body.on('click', '.fed_ajax_show_content_in_popup', function (e) {
+        var click = $(this);
+        $.fed_toggle_loader();
+        $.ajax({
+            type: 'POST',
+            url: click.data('url'),
+            success: function (results) {
+                $.fed_toggle_loader();
+                $('#fed_p_popup').find('.modal-body').html(results.data.html);
+                $('#fed_p_popup').modal('show');
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });
+        e.preventDefault();
+    });
+
+    body.on('click','.fed_print_invoice',function (e) {
+        window.print();
+        e.preventDefault();
+    });
 });
