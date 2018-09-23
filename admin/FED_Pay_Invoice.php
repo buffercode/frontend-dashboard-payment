@@ -379,9 +379,79 @@ if ( ! class_exists('FED_Pay_Invoice')) {
          */
         private function format_single_invoice_string(Payment $transaction)
         {
-            $html = '';
+            $local = fed_p_get_payment_by_id($transaction->getId());
 
-            return $html;
+            $invoice_settings = get_option('fed_admin_settings_payments');
+
+            $invoice_details = $invoice_settings ? $invoice_settings['invoice']['details'] : array();
+
+            if (count($local) > 0) {
+
+                $payee = $transaction->getTransactions()[0]->getItemList()->getShippingAddress();
+
+                $name = $transaction->getPayer()->getPayerInfo();
+
+                $amount = $list_items = array();
+
+                foreach ($transaction->getTransactions() as $trans) {
+                    $amount = array(
+                            'total' => $trans->getAmount()->getTotal(),
+                            'currency' => $trans->getAmount()->getCurrency(),
+                            'subtotal' => $trans->getAmount()->getDetails()->getSubtotal(),
+                            'tax' => $trans->getAmount()->getDetails()->getTax(),
+                            'shipping' => $trans->getAmount()->getDetails()->getShipping(),
+                            'insurance' => $trans->getAmount()->getDetails()->getInsurance(),
+                            'handling_fee' => $trans->getAmount()->getDetails()->getHandlingFee(),
+                            'shipping_discount' => $trans->getAmount()->getDetails()->getShippingDiscount(),
+                    );
+
+                    foreach($trans->getItemList()->getItems() as $items){
+                        $list_items[] = array(
+                                'name'=>$items->getName(),
+                                'description'=>$items->getDescription(),
+                                'price'=>$items->getPrice(),
+                                'currency'=>$items->getCurrency(),
+                                'tax'=>$items->getTax(),
+                                'quantity'=>$items->getQuantity(),
+                        );
+                    }
+
+                }
+
+                $array = array(
+                        'plan_name'          => $local['plan_name'],
+                        'amount'              => $amount,
+                        'company'            => array(
+                                'company_name' => $invoice_details['company_name'],
+                                'logo'         => wp_get_attachment_url($invoice_details['logo']),
+                                'width'        => ! empty($invoice_details['width']) ? 'width="'.$invoice_details['width'].'px"' : '',
+                                'height'       => ! empty($invoice_details['height']) ? 'height="'.$invoice_details['height'].'px"' : '',
+                                'door_number'  => $invoice_details['door_number'],
+                                'street_name'  => $invoice_details['street_name'],
+                                'city'         => $invoice_details['city'],
+                                'state'        => $invoice_details['state'],
+                                'postal_code'  => $invoice_details['postal_code'],
+                                'country'      => $invoice_details['country'],
+                        ),
+                        'payee'              => array(
+                                'recipient_name' => $name->getFirstName().' '.$name->getLastName(),
+                                'line1'          => $payee->getLine1(),
+                                'city'           => $payee->getCity(),
+                                'state'          => $payee->getState(),
+                                'postal_code'    => $payee->getPostalCode(),
+                                'country_code'   => $payee->getCountryCode(),
+                        ),
+                        'invoice_number'     => $local['invoice_number'],
+                        'invoice_date'       => $transaction->getTransactions()[0]->getRelatedResources()[0]->getSale()->getCreateTime(),
+                        'list_items' => $list_items,
+                );
+
+                $html = $this->invoice_html_single_format($array);
+
+                return $html;
+            }
+
+            return 'SOMETHING WENT WRONG';
         }
 
         /**
@@ -438,6 +508,103 @@ if ( ! class_exists('FED_Pay_Invoice')) {
                             </tr>
                             </thead>
                             <tbody>';
+
+            foreach ($array['payment_definition'] as $pd) {
+                $html .= '<tr style="display: table-row;">
+                                <td>'.$array['plan_name'].'</td>
+                                <td>'.$pd['type'].'</td>
+                                <td>'.$pd['frequency'].'</td>
+                                <td>'.$pd['amount'].' '.$pd['currency'].'</td>
+                            </tr>';
+            }
+            $html .= '<tr style="display: table-row;">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="display: table-row;" class="info">
+                                <td colspan="3" class="text-right">
+                                    <b>Total</b>
+                                </td>
+                                <td>
+                                    <b>'.$array['total'].'</b>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p class="invoice-color">                           
+                        </p>
+                    </div>
+                </div>
+            </div>';
+
+            return $html;
+
+        }
+
+        /**
+         * @param $array
+         *
+         * @return string
+         */
+        private function invoice_html_single_format($array)
+        {
+
+
+            $html = '';
+
+            $html .= '<div class="container" id="print">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="padding-top text-left" id="logo">
+                            <img src="'.$array['company']['logo'].'" '.$array['company']['width'].' '.$array['company']['height'].' />
+                        </div>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <h4>'.$array['company']['company_name'].'</h4>
+                        <p>'.$array['company']['door_number'].' '.$array['company']['street_name'].'</p>
+                        <p>'.$array['company']['city'].' '.$array['company']['state'].'</p>
+                        <p>'.$array['company']['country'].' '.$array['company']['postal_code'].'</p>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row text-uppercase">
+                    <div class="col-sm-6 text-left">
+                        <h3>Client Details</h3>
+                        <h4 style="display: block;">'.$array['payee']['recipient_name'].'</h4>
+                        <p>'.$array['payee']['line1'].'</p>
+                        <p>'.$array['payee']['city'].' '.$array['payee']['state'].'</p>
+                        <p>'.$array['payee']['country_code'].' '.$array['payee']['postal_code'].'</p>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <div class="invoice-color">
+                            <h3>Invoice Number: '.$array['invoice_number'].'</h3>
+                            <h4 style="display: block;">Invoice date: '.$array['invoice_date'].'</h4>
+                            <h1 style="display: block;" class="big-font">'.$array['total'].'</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row tablecss">
+                    <div class="col-md-12">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                            <tr style="display: table-row;" class="success">
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Frequency</th>
+                                <th>Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>';
+            /**
+             * TODO: Change the list Title and content
+             */
 
             foreach ($array['payment_definition'] as $pd) {
                 $html .= '<tr style="display: table-row;">

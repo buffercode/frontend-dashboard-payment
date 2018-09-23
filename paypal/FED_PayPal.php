@@ -357,7 +357,7 @@ class FED_PayPal
      *
      * @param $transaction_id
      *
-     * @return array
+     * @return Payment
      */
     public function get_payment_by_id($transaction_id)
     {
