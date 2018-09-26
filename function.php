@@ -39,19 +39,31 @@ function fed_pay_invoice_templates()
 }
 
 /**
+ * @param bool $user_id
+ *
  * @return array
  */
-function fed_p_get_payments()
+function fed_p_get_payments($user_id = false)
 {
     global $wpdb;
     $payment = $wpdb->prefix.BC_FED_PAY_PAYMENT_TABLE;
     $user    = $wpdb->prefix.'users';
 
 
-    $query = $wpdb->get_results("SELECT *
+    if ( ! $user_id) {
+        $query = $wpdb->get_results("SELECT *
             FROM $payment AS p
             JOIN $user AS s on p.user_id = s.id
             ORDER by p.id", ARRAY_A);
+    }
+    if( $user_id){
+        $query = $wpdb->get_results("SELECT *
+            FROM $payment AS p
+            JOIN $user AS s on p.user_id = s.id
+            WHERE p.user_id = $user_id
+            ORDER by p.id", ARRAY_A);
+    }
+
 
     return $query;
 }

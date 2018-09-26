@@ -30,6 +30,8 @@ if ( ! class_exists( 'FED_Pay_Menu_Layout' ) ) {
 
 			add_action( 'fed_enqueue_script_style_admin', array( $this, 'script_style_admin' ) );
 
+			add_action( 'fed_enqueue_script_style_frontend', array( $this, 'frontend_script_style_admin' ) );
+
 			add_action( 'wp_ajax_fed_admin_paypal_setting_form', array( $this, 'fed_pay_admin_paypal_api_save' ) );
 		}
 
@@ -118,6 +120,14 @@ if ( ! class_exists( 'FED_Pay_Menu_Layout' ) ) {
 				array(), BC_FED_PAY_PLUGIN_VERSION, 'all' );
 
 			wp_enqueue_script( 'fed_pay_admin_script', plugins_url( 'assets/fed_paypal.js', BC_FED_PAY_PLUGIN ), array() );
+		}
+
+		public function frontend_script_style_admin() {
+            wp_enqueue_style( 'fed_pay_admin_style_global',
+                    plugins_url( 'assets/fed_paypal_global.css', BC_FED_PAY_PLUGIN ),
+                    array(), BC_FED_PAY_PLUGIN_VERSION, 'all' );
+
+			wp_enqueue_script( 'fed_pay_admin_script_global', plugins_url( 'assets/fed_paypal_global.js', BC_FED_PAY_PLUGIN ), array() );
 		}
 
 	}

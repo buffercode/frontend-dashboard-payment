@@ -168,7 +168,7 @@ class FED_PayPal
                     ->setTax($__transaction['amount']['details']['tax'])
                     ->setShippingDiscount($__transaction['amount']['details']['shipping_discount'])
                     ->setInsurance($__transaction['amount']['details']['insurance'])
-                    ->setGiftWrap($__transaction['amount']['details']['gift_wrap'])
+//                    ->setGiftWrap($__transaction['amount']['details']['gift_wrap'])
                     ->setHandlingFee($__transaction['amount']['details']['handling_fee'])
                     ->setSubtotal($__transaction['amount']['details']['sub_total']);
 
@@ -234,6 +234,7 @@ class FED_PayPal
             $payments->create($this->paypal);
         } catch (Exception $ex) {
             FED_Log::writeLog('Problem in PayPal Payment on function process_paypal at PaypalController');
+            FED_Log::writeLog($ex);
             exit(1);
         }
 
@@ -337,11 +338,11 @@ class FED_PayPal
                 );
 
 
-                do_action('fed_paypal_single_before_save_action');
+                do_action('fed_paypal_single_before_save_action', $data);
 
                 $status = fed_insert_new_row(BC_FED_PAY_PAYMENT_TABLE, $data);
 
-                do_action('fed_paypal_single_after_save_action');
+                do_action('fed_paypal_single_after_save_action', $data, $status);
 
                 return $status;
             }
@@ -879,12 +880,12 @@ class FED_PayPal
             );
 
 
-            do_action('fed_paypal_subscription_before_save_action');
+            do_action('fed_paypal_subscription_before_save_action',$data);
 
             $status = fed_insert_new_row(BC_FED_PAY_PAYMENT_TABLE, $data);
 
             if ($status) {
-                do_action('fed_paypal_subscription_after_save_action');
+                do_action('fed_paypal_subscription_after_save_action',$data,$status);
 
                 return $status;
             }

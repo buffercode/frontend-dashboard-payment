@@ -157,7 +157,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 				) ) . '
 	                                    </div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4">
 									<div class="form-group">
 	                                        <label>Shipping</label>
 			                                ' . fed_get_input_details( array(
@@ -168,18 +168,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 				) ) . '
 	                                    </div>
 	                                    </div>
-	                                    <div class="col-md-3">
-	                                    <div class="form-group">
-	                                        <label>Gift Wrap</label>
-			                                ' . fed_get_input_details( array(
-					'placeholder' => 'Gift Wrap',
-					'input_meta'  => 'amount[details][gift_wrap]',
-					'user_value'  => isset( $amount['details']['gift_wrap'] ) ? $amount['details']['gift_wrap'] : '',
-					'input_type'  => 'single_line',
-				) ) . '
-	                                    </div>
-	                                    </div>
-	                                    <div class="col-md-3">
+	                                    <div class="col-md-5">
 	                                    <div class="form-group">
 	                                        <label>Handling Fee</label>
 			                                ' . fed_get_input_details( array(
@@ -429,7 +418,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 				) ) . '
 	                                    </div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4">
 									<div class="form-group">
 	                                        <label>Shipping</label>
 			                                ' . fed_get_input_details( array(
@@ -440,18 +429,8 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 				) ) . '
 	                                    </div>
 	                                    </div>
-	                                    <div class="col-md-3">
-	                                    <div class="form-group">
-	                                        <label>Gift Wrap</label>
-			                                ' . fed_get_input_details( array(
-					'placeholder' => 'Gift Wrap',
-					'input_meta'  => 'amount[details][gift_wrap]',
-					'user_value'  => '',
-					'input_type'  => 'single_line',
-				) ) . '
-	                                    </div>
-	                                    </div>
-	                                    <div class="col-md-3">
+	                                    
+	                                    <div class="col-md-5">
 	                                    <div class="form-group">
 	                                        <label>Handling Fee</label>
 			                                ' . fed_get_input_details( array(
@@ -621,7 +600,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 									'handling_fee'      => '',
 									'shipping_discount' => '',
 									'insurance'         => '',
-									'gift_wrap'         => '',
+//									'gift_wrap'         => '',
 								],
 							],
 							'description'    => '',
@@ -697,7 +676,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 					'shipping_discount_type' => fed_sanitize_text_field( $request['amount']['details']['shipping_discount_type'] ),
 					'insurance'              => (float) ( $request['amount']['details']['insurance'] ),
 					'insurance_type'         => fed_sanitize_text_field( $request['amount']['details']['insurance_type'] ),
-					'gift_wrap'              => (float) ( $request['amount']['details']['gift_wrap'] ),
+//					'gift_wrap'              => (float) ( $request['amount']['details']['gift_wrap'] ),
 				),
 			);
 

@@ -586,7 +586,7 @@ if ( ! class_exists('FED_Pay_Invoice')) {
                         <div class="invoice-color">
                             <h3>Invoice Number: '.$array['invoice_number'].'</h3>
                             <h4 style="display: block;">Invoice date: '.$array['invoice_date'].'</h4>
-                            <h1 style="display: block;" class="big-font">'.$array['total'].'</h1>
+                            <h1 style="display: block;" class="big-font">'.$array['amount']['total']. $array['amount']['currency'] .'</h1>
                         </div>
                     </div>
                 </div>
@@ -596,39 +596,82 @@ if ( ! class_exists('FED_Pay_Invoice')) {
                             <thead>
                             <tr style="display: table-row;" class="success">
                                 <th>Name</th>
-                                <th>Type</th>
-                                <th>Frequency</th>
+                                <th>Quantity</th>
                                 <th>Total</th>
                             </tr>
                             </thead>
                             <tbody>';
-            /**
-             * TODO: Change the list Title and content
-             */
 
-            foreach ($array['payment_definition'] as $pd) {
+            foreach ($array['list_items'] as $list) {
                 $html .= '<tr style="display: table-row;">
-                                <td>'.$array['plan_name'].'</td>
-                                <td>'.$pd['type'].'</td>
-                                <td>'.$pd['frequency'].'</td>
-                                <td>'.$pd['amount'].' '.$pd['currency'].'</td>
+                                <td>'.$list['name'].'</td>
+                                <td>'.$list['quantity'].'</td>
+                                <td>'.$list['price'].' '.$list['currency'].'</td>
                             </tr>';
             }
             $html .= '<tr style="display: table-row;">
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
                             </tr>
                             <tr style="display: table-row;" class="info">
-                                <td colspan="3" class="text-right">
+                                <td colspan="2" class="text-right">
+                                    <b>SubTotal</b>
+                                </td>
+                                <td>
+                                    <b>'.$array['amount']['subtotal']. ' ' . $array['amount']['currency'] .'</b>
+                                </td>
+                            </tr>
+                            <tr style="display: table-row;" class="info">
+                                <td colspan="2" class="text-right">
+                                    <b>Tax</b>
+                                </td>
+                                <td>
+                                    <b>'.$array['amount']['tax']. ' ' . $array['amount']['currency'] .'</b>
+                                </td>
+                            </tr>
+                            <tr style="display: table-row;" class="info">
+                                <td colspan="2" class="text-right">
+                                    <b>Shipping</b>
+                                </td>
+                                <td>
+                                    <b>'.$array['amount']['shipping']. ' ' . $array['amount']['currency'] .'</b>
+                                </td>
+                            </tr>
+                            <tr style="display: table-row;" class="info">
+                                <td colspan="2" class="text-right">
+                                    <b>Insurance</b>
+                                </td>
+                                <td>
+                                    <b>'.$array['amount']['insurance']. ' ' . $array['amount']['currency'] .'</b>
+                                </td>
+                            </tr>
+                            <tr style="display: table-row;" class="info">
+                                <td colspan="2" class="text-right">
+                                    <b>Handling Fee</b>
+                                </td>
+                                <td>
+                                    <b>'.$array['amount']['handling_fee']. ' ' . $array['amount']['currency'] .'</b>
+                                </td>
+                            </tr>
+                            
+                            <tr style="display: table-row;" class="info">
+                                <td colspan="2" class="text-right">
+                                    <b>Shipping Discount</b>
+                                </td>
+                                <td>
+                                    <b>-'.$array['amount']['shipping_discount']. ' ' . $array['amount']['currency'] .'</b>
+                                </td>
+                            </tr>
+                            
+                            <tr style="display: table-row;" class="info">
+                                <td colspan="2" class="text-right">
                                     <b>Total</b>
                                 </td>
                                 <td>
-                                    <b>'.$array['total'].'</b>
+                                    <b>'.$array['amount']['total']. ' ' . $array['amount']['currency'] .'</b>
                                 </td>
                             </tr>
-
                             </tbody>
                         </table>
                     </div>

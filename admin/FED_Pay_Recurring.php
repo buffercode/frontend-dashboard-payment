@@ -368,29 +368,31 @@ if ( ! class_exists('FED_Pay_Recurring')) {
         }
 
         /**
-         * @param $payments
+         * @param bool $user_id
          *
          * @return string
          */
-        public function payment_page()
+        public function payment_page($user_id = false)
         {
             fed_verify_nonce($_REQUEST);
 
-            $paypal = fed_p_get_payments();
+            $paypal = fed_p_get_payments($user_id);
 
             if (count($paypal) > 0) {
                 $html = '';
 
                 $html .= '
                         <div class="row padd_top_20">
-                            <div class="col-md-12">
-                                <div class="fed_page_title">
+                            <div class="col-md-12">';
+                if (defined('DOING_AJAX') && DOING_AJAX) {
+                    $html .= '<div class="fed_page_title">
                                     <h3 class="fed_header_font_color">
                                     Payment Details
                                     <button data-url="'.admin_url('admin-ajax.php?action=fed_pay_payment_index&fed_nonce='.wp_create_nonce('fed_nonce')).'" class="btn btn-secondary pull-right fed_replace_ajax"><span class="fas fa-redo"></span> Back to Payment Dashboard</button>
                                     </h3>
-                                </div>
-                                <div class="fed_payment_list  padd_top_20">
+                                </div>';
+                }
+                $html .= '<div class="fed_payment_list  padd_top_20">
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered">
                                             <thead>
@@ -436,7 +438,7 @@ if ( ! class_exists('FED_Pay_Recurring')) {
                         </div>
                         </div>';
 
-                $html .='<div class="modal fade" id="fed_p_popup">
+                $html .= '<div class="modal fade" id="fed_p_popup">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -449,14 +451,21 @@ if ( ! class_exists('FED_Pay_Recurring')) {
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary fed_print_invoice">Print</button>
+                                <button type="button" class="btn btn-primary" onClick="window.print();return false">Print</button>
                             </div>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div>';
-                wp_send_json_success(['html' => $html]);
+                if (defined('DOING_AJAX') && DOING_AJAX) {
+                    wp_send_json_success(['html' => $html]);
+                }
+
+                return $html;
             }
-            wp_send_json_error(['message' => 'Please fill the PayPal API Details']);
+            if (defined('DOING_AJAX') && DOING_AJAX) {
+                wp_send_json_error(['message' => 'You don\'t have any transactions']);
+            }
+            return 'You don\'t have any transactions';
         }
         /**
          * Hidden for Not receiving properly from PayPal
