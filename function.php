@@ -8,7 +8,7 @@
  * Append the Version -- Pages
  */
 add_filter('fed_plugin_versions', function ($version) {
-    return array_merge($version, array('payment' => 'Payment'));
+    return array_merge($version, array('payment' => __('Payment','frontend-dashboard-payment')));
 });
 
 
@@ -16,7 +16,7 @@ add_action('wp_ajax_fedp_pay_payment_page', 'fedp_payment_page');
 
 function fedp_payment_page()
 {
-    echo 'hello';
+    echo 'Under Construction';
 }
 
 /**
@@ -78,12 +78,12 @@ function fed_p_get_payment_by_id($payment_id)
     global $wpdb;
     $payment = $wpdb->prefix.BC_FED_PAY_PAYMENT_TABLE;
     $user    = $wpdb->prefix.'users';
-
+    $paymentID = fed_sanitize_text_field($payment_id);
 
     $query = $wpdb->get_results("SELECT *
             FROM $payment AS p
             JOIN $user AS s on p.user_id = s.id
-            WHERE p.payment_id = '{$payment_id}'
+            WHERE p.payment_id = '{$paymentID}'
             ", ARRAY_A);
 
     return count($query) > 0 ? $query[0] : array();

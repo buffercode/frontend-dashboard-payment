@@ -222,8 +222,9 @@ if ( ! class_exists('FED_Pay_Recurring')) {
          */
         public function recurring_page()
         {
-            fed_verify_nonce($_REQUEST);
-            $status = fed_isset_request($_REQUEST, 'status', 'ACTIVE');
+            $request = fed_sanitize_text_field($_REQUEST);
+            fed_verify_nonce($request);
+            $status = fed_isset_request($request, 'status', 'ACTIVE');
             $paypal = new FED_PayPal();
             if ($paypal->is_true()) {
                 $plans = $paypal->list_plans($status);
@@ -374,7 +375,8 @@ if ( ! class_exists('FED_Pay_Recurring')) {
          */
         public function payment_page($user_id = false)
         {
-            fed_verify_nonce($_REQUEST);
+            $request = fed_sanitize_text_field($_REQUEST);
+            fed_verify_nonce($request);
 
             $paypal = fed_p_get_payments($user_id);
 
@@ -465,6 +467,7 @@ if ( ! class_exists('FED_Pay_Recurring')) {
             if (defined('DOING_AJAX') && DOING_AJAX) {
                 wp_send_json_error(['message' => 'You don\'t have any transactions']);
             }
+
             return 'You don\'t have any transactions';
         }
         /**
@@ -699,13 +702,14 @@ if ( ! class_exists('FED_Pay_Recurring')) {
          */
         public function fed_save_plan()
         {
+            $request = fed_sanitize_text_field($_REQUEST);
             /**
              * TODO:save Plan
              */
-            fed_verify_nonce($_REQUEST);
+            fed_verify_nonce($request);
             $plan = new FED_PayPal();
 
-            $status = $plan->create_plan($_REQUEST);
+            $status = $plan->create_plan(fed_sanitize_text_field($request));
             FED_Log::writeLog(['inside' => $status]);
 
             if ($status instanceof Exception) {
@@ -881,19 +885,20 @@ X
          */
         public function fed_pay_change_plan()
         {
-            fed_verify_nonce($_REQUEST);
-            if (fed_isset_request($_REQUEST, 'id', false) && fed_isset_request($_REQUEST, 'plan',
+            $request = fed_sanitize_text_field($_REQUEST);
+            fed_verify_nonce($request);
+            if (fed_isset_request($request, 'id', false) && fed_isset_request($request, 'plan',
                             false) && is_admin()) {
                 $plan = new FED_PayPal();
-                FED_Log::writeLog($_REQUEST['plan']);
-                $status = $plan->activate_plan($_REQUEST['id'], strtoupper($_REQUEST['plan']));
+//                FED_Log::writeLog($request['plan']);
+                $status = $plan->activate_plan($request['id'], strtoupper($request['plan']));
                 if ($status instanceof Exception) {
                     $error   = $status->getData();
                     $message = json_decode($error, true);
                     wp_send_json_error(['message' => $message['details'][0]['issue'], 'type' => 'error']);
                 }
 
-                wp_send_json_success(['message' => 'Plan '.strtoupper($_REQUEST['plan']).' Successfully']);
+                wp_send_json_success(['message' => 'Plan '.strtoupper($request['plan']).' Successfully']);
             }
             wp_send_json_error(['message' => 'Something went wrongly']);
         }

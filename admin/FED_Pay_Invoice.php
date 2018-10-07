@@ -26,7 +26,7 @@ if ( ! class_exists('FED_Pay_Invoice')) {
 
         public function popup_invoice()
         {
-            $request = $_REQUEST;
+            $request = fed_sanitize_text_field($_REQUEST);
             fed_verify_nonce($request);
             $paypal = new FED_PayPal();
             if ($request['type'] === 'single') {
@@ -49,7 +49,7 @@ if ( ! class_exists('FED_Pay_Invoice')) {
 
         public function save_invoice_details()
         {
-            $request                            = $_REQUEST;
+            $request                            = fed_sanitize_text_field($_REQUEST);
             $invoice_details_options            = get_option('fed_admin_settings_payments');
             $invoice_details_options['invoice'] = array(
                     'details' => array(
@@ -79,7 +79,7 @@ if ( ! class_exists('FED_Pay_Invoice')) {
 
         public function save_invoice_templates()
         {
-            $request                            = $_REQUEST;
+            $request                            = fed_sanitize_text_field($_REQUEST);
             $invoice_details_options            = get_option('fed_admin_settings_payments');
             $invoice_details_options['invoice'] = array(
                     'template' => array(

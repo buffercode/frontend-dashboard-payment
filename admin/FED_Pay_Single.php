@@ -29,7 +29,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 		}
 
 		public function single_update_status() {
-			$request = $_REQUEST;
+            $request = fed_sanitize_text_field($_REQUEST);
 			global $wpdb;
 			$table_name = $wpdb->prefix . BC_FED_PAY_PAYMENT_PLAN_TABLE;
 			fed_verify_nonce( $request );
@@ -54,7 +54,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 		}
 
 		public function single_update() {
-			$request = $_REQUEST;
+            $request = fed_sanitize_text_field($_REQUEST);
 			global $wpdb;
 			$table_name = $wpdb->prefix . BC_FED_PAY_PAYMENT_PLAN_TABLE;
 			fed_verify_nonce( $request );
@@ -79,7 +79,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 		}
 
 		public function single_edit() {
-			$request = $_REQUEST;
+            $request = fed_sanitize_text_field($_REQUEST);
 			fed_verify_nonce( $request );
 			if ( ! isset( $request['id'] ) ) {
 				wp_send_json_error( array( 'message' => 'Something went wrong, please reload the page' ) );
@@ -552,7 +552,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 		}
 
 		public function single_save() {
-			$request = $_REQUEST;
+            $request = fed_sanitize_text_field($_REQUEST);
 			fed_verify_nonce( $request );
 			$list   = $amount = array();
 			$format = [

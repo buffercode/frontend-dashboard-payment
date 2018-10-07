@@ -835,17 +835,18 @@ class FED_PayPal
                 exit(1);
             }
             try {
-                FED_Log::writeLog('Agreement_id => '.$agreement->getId());
+//                FED_Log::writeLog('Agreement_id => '.$agreement->getId());
                 $agreement = Agreement::get($agreement->getId(), $this->paypal);
             } catch (Exception $ex) {
                 FED_Log::writeLog($ex);
                 exit(1);
             }
 
-            FED_Log::writeLog('$agreement');
-            FED_Log::writeLog($agreement);
+//            FED_Log::writeLog('$agreement');
+//            FED_Log::writeLog($agreement);
 
             $this->saveSubscription($agreement);
+
 
             return $agreement;
 
@@ -861,13 +862,14 @@ class FED_PayPal
      */
     private function saveSubscription(Agreement $agreement)
     {
+        $request = fed_sanitize_text_field($_REQUEST);
         $payer           = $agreement->getPayer()->getPayerInfo();
         $current_user_id = get_current_user_id();
         if ($current_user_id) {
             $data = array(
                     'user_id'        => (int)$current_user_id,
-                    'plan_name'      => $_REQUEST['plan_name'],
-                    'plan_id'        => $_REQUEST['plan_id'],
+                    'plan_name'      => $request['plan_name'],
+                    'plan_id'        => $request['plan_id'],
                     'plan_type'      => 'subscription',
                     'payment_id'     => $agreement->getId(),
                     'invoice_number' => uniqid(date('Ymd-'), false),
