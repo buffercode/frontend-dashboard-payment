@@ -66,7 +66,7 @@ if ( ! class_exists('FED_Pay_Recurring')) {
                             'icon'      => 'fa fa-file-invoice',
                             'name'      => __('Invoice Details', 'frontend-dashboard-payment-payment'),
                             'callable'  => array(
-                                    'object' => new FED_Pay_Invoice(),
+                                    'object' => new FED_PP_Invoice(),
                                     'method' => 'fed_pay_admin_invoice_details_tab',
                             ),
                             'arguments' => $fed_admin_options,
@@ -75,7 +75,7 @@ if ( ! class_exists('FED_Pay_Recurring')) {
                             'icon'      => 'fa fa-file-invoice-dollar',
                             'name'      => __('Invoice Templates', 'frontend-dashboard-payment-payment'),
                             'callable'  => array(
-                                    'object' => new FED_Pay_Invoice(),
+                                    'object' => new FED_PP_Invoice(),
                                     'method' => 'fed_pay_admin_invoice_templates_tab',
                             ),
                             'arguments' => $fed_admin_options,
@@ -465,10 +465,18 @@ if ( ! class_exists('FED_Pay_Recurring')) {
                 return $html;
             }
             if (defined('DOING_AJAX') && DOING_AJAX) {
-                wp_send_json_error(['message' => 'You don\'t have any transactions']);
+                $html = '<div class="fed_page_title">
+                                    <h3 class="fed_header_font_color">
+                                    Payment Details
+                                    <button data-url="'.admin_url('admin-ajax.php?action=fed_pay_payment_index&fed_nonce='.wp_create_nonce('fed_nonce')).'" class="btn btn-secondary pull-right fed_replace_ajax"><span class="fas fa-redo"></span> Back to Payment Dashboard</button>
+                                    </h3>
+                                </div>
+                                <div class="fed_payment_list  padd_top_20">
+                                Sorry you don\'t have any transactions
+</div>';
+                wp_send_json_success(['html' => $html]);
             }
-
-            return 'You don\'t have any transactions';
+            wp_send_json_success(['html' => 'Something went wrong']);
         }
         /**
          * Hidden for Not receiving properly from PayPal

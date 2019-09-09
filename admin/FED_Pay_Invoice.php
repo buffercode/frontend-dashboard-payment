@@ -690,5 +690,5 @@ if ( ! class_exists('FED_Pay_Invoice')) {
 
     }
 
-    new FED_Pay_Invoice();
+    new FED_PP_Invoice();
 }

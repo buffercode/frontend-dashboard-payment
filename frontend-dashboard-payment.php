@@ -3,7 +3,7 @@
  * Plugin Name: Frontend Dashboard Payment
  * Plugin URI: https://buffercode.com/plugin/frontend-dashboard-payment
  * Description: Frontend dashboard payment provides easy to do Payment in PayPal.
- * Version: 1.1.1
+ * Version: 1.1.3
  * Author: vinoth06
  * Author URI: https://buffercode.com/
  * License: GPLv2
@@ -22,7 +22,7 @@ if ($fed_check && is_plugin_active('frontend-dashboard/frontend-dashboard.php'))
     /**
      * Version Number
      */
-    define('BC_FED_PAY_PLUGIN_VERSION', '1.1.1');
+    define('BC_FED_PAY_PLUGIN_VERSION', '1.1.3');
     define('BC_FED_PAY_PLUGIN_VERSION_TYPE', 'FREE');
 
     /**

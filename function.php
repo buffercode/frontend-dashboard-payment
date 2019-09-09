@@ -88,3 +88,8 @@ function fed_p_get_payment_by_id($payment_id)
 
     return count($query) > 0 ? $query[0] : array();
 }
+
+
+add_filter('fed_shortcode_lists',function($shortcodes){
+    return $shortcodes + array('fed_invoice');
+});
