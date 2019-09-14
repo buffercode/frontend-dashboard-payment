@@ -700,7 +700,7 @@ if ( ! class_exists( 'FED_Pay_Single' ) ) {
 
 			$status = fed_insert_new_row( BC_FED_PAY_PAYMENT_PLAN_TABLE, $value );
 			if ( $status ) {
-				wp_send_json_success( array( 'message' => 'Successfully saved' ) );
+				wp_send_json_success( array( 'message' => 'Successfully Saved' ) );
 			}
 
 			wp_send_json_error( array( 'message' => 'Something Went Wrong' ) );

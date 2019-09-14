@@ -139,5 +139,5 @@ if ( ! class_exists('FED_Pay_Install')) {
         }
     }
 
-    new FEDMPInstall();
+    new FED_Pay_Install();
 }
